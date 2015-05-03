@@ -1,0 +1,175 @@
+﻿// ToDoList - A simple To-Do item manager
+// Copyright (C) 2014 Dylan Eddies
+// 
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+using System;
+using System.Threading;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Collections.Concurrent;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using Gtk;
+using Cairo;
+
+namespace ToDoList
+{
+	public class Category 
+	{
+		public Category(string id, string name, string description, bool active){
+			this.CategoryID = id;
+			this.CategoryName = name;
+			this.CategoryDescription = description;
+			this.CategoryActive = active;
+		}
+		
+		public string CategoryID;
+		public string CategoryName;
+		public string CategoryDescription;
+		public bool CategoryActive;
+	}
+    public partial class ToDoMW : Gtk.Window
+    {
+        public ToDoMW()
+            : base(Gtk.WindowType.Toplevel)
+        {
+            BuildMainGui();
+			this.fileActionProgBar.Hide ();
+			/*songs = new ArrayList ();
+			songs.Add (new Category ("1", "Dancing DJs vs. Roxette", "Fading Like a Flower", true));
+			        foreach (Category category in songs) {
+            musicListStore.AppendValues (category);*/
+        //}
+        }
+
+        public void newstuff() { }
+
+		void addCategory_Clicked(object sender, EventArgs e)
+        {
+
+
+            if (GlobalGuiVars.AddCategoryOpened == false)
+            {
+                AddCategoryPopUp acpu = new AddCategoryPopUp();
+                acpu.Show();
+                Thread cfca = new Thread(new ThreadStart(checkForCategoryAddition));
+                cfca.Start();
+                GlobalGuiVars.AddCategoryOpened = true;
+                GuiWorker.Worker(2, true);
+            }
+            else
+            {
+                Console.WriteLine("already open");
+            }
+            
+        }
+
+        void checkForCategoryAddition()
+        {
+
+            while (GlobalGuiVars.AddCategoryPopUp_JustClosedSecondPhase == false)
+            {
+				if (GlobalGuiVars.n11 == false)
+                {
+                    Console.WriteLine("Waiting for input...");
+					GlobalGuiVars.n11 = true;
+                }
+
+            }
+            while (GlobalGuiVars.AddCategoryPopUp_JustClosedSecondPhase == true)
+            {
+				GlobalGuiVars.hasBeenGenerated++;
+				Console.WriteLine (GlobalGuiVars.hasBeenGenerated);
+				if (GlobalGuiVars.hasBeenGenerated == 1) {
+
+					categoryItemsStore.AppendValues (GlobalGuiVars.tempCatIdStore,
+						GlobalGuiVars.tempCatNameStore,
+						GlobalGuiVars.tempCatDescriptionStore
+					);
+					
+					GlobalGuiVars.tempCatNameStore = "";
+					GlobalGuiVars.tempCatDescriptionStore = "";
+					GlobalGuiVars.hasBeenGenerated++;
+					Console.WriteLine (GlobalGuiVars.hasBeenGenerated);
+				} else {
+					Console.WriteLine ("Err: already generated");
+				}
+
+                GlobalGuiVars.AddCategoryPopUp_JustClosedSecondPhase = false;
+                GlobalGuiVars.AddCategoryPopUp_JustClosed = false;
+                GlobalGuiVars.AddCategoryOpened = false;
+
+				GlobalGuiVars.n10 = false;
+				GlobalGuiVars.n11 = false;
+
+				GuiWorker.Worker (1, false);
+				GuiWorker.Worker (2, false);
+				GuiWorker.Worker (3, false);
+
+            }
+        }
+		public void categoryItemToggleCell_Toggled(object sender, ToggledArgs socio)
+		{
+			TreeIter iter;
+			if (categoryItemsStore.GetIter (out iter, new TreePath (socio.Path))) 
+			{
+				bool toggler = (bool)categoryItemsStore.GetValue (iter, 3);
+				categoryItemsStore.SetValue (iter, 3, !toggler);
+			}
+		}
+		public void deleteCategory_Clicked(object sender, EventArgs e)
+		{
+			ConfirmCategoryDelete ccd = new ConfirmCategoryDelete ();
+			ccd.Show ();
+		}
+		void modifyCategory_Clicked(object sender, EventArgs e)
+		{
+			ModifyCategoryPopUp mcpu = new ModifyCategoryPopUp ();
+			mcpu.Show ();
+		}
+		void fileExitMenuItem_Clicked(object sender, EventArgs e)
+		{
+			Application.Quit ();
+		}
+		private void categoryItemNameCell_Edited(object sender, EditedArgs socio)
+		{
+			TreeIter iter;
+			categoryItemsStore.GetIter (out iter, new TreePath (socio.Path));
+
+			//CategoryName name = (CategoryName)categoryItemsStore.GetValue (iter, 1);
+
+
+			string name = categoryItemsStore.GetValue(iter, 1);
+			category.CategoryName = socio.NewText;
+			//TODO:
+		}
+		private void categoryItemDescriptionCell_Edited(object sender, EditedArgs args)
+		{
+			TreeIter iter;
+			categoryItemsStore.GetIter(out iter, new Gtk.TreePath args
+		}
+        protected void OnDeleteEvent(object sender, DeleteEventArgs a)
+        {
+			this.Destroy ();
+            Application.Quit();
+            //a.RetVal = true;
+
+        }
+    }
+}

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ClassDiagram Zoom="1" MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="ToDoList.MainClass" Collapsed="False">
+    <Position X="0.5" Y="0.5" Width="2.886686" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.AddCategoryConfirmationDialog" Collapsed="False">
+    <Position X="0.5" Y="13" Width="3.832751" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.AddCategoryErrorDialog" Collapsed="False">
+    <Position X="0.5" Y="16.1" Width="3.049108" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="Stetic.SteticInit" Collapsed="False">
+    <Position X="0.5" Y="18.9" Width="1.262467" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="Stetic.ActionGroup" Collapsed="False">
+    <Position X="0.5" Y="20.6" Width="2.021725" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.AddToDoItemCalendarDialog" Collapsed="False">
+    <Position X="0.5" Y="22.2" Width="3.541852" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.GuiWorker" Collapsed="False">
+    <Position X="0.5" Y="25.8" Width="2.198288" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.ToDoItem" Collapsed="False">
+    <Position X="0.5" Y="27.7" Width="1.573024" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.Category" Collapsed="False">
+    <Position X="0.5" Y="30.2" Width="1.883634" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.ModifyCategoryPopUp" Collapsed="False">
+    <Position X="0.5" Y="32.3" Width="2.859079" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.ConfirmCategoryDelete" Collapsed="False">
+    <Position X="0.5" Y="36.3" Width="2.948239" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="Stetic.Gui" Collapsed="False">
+    <Position X="0.5" Y="39.4" Width="1.262467" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="Stetic.ActionGroups" Collapsed="False">
+    <Position X="0.5" Y="41.1" Width="2.021725" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.AddCategoryPopUp" Collapsed="False">
+    <Position X="0.5" Y="42.7" Width="2.593532" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.AddToDoItemPopUp" Collapsed="False">
+    <Position X="0.5" Y="48" Width="2.668942" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="ToDoList.GlobalGuiVars" Collapsed="False">
+    <Position X="0.5" Y="54.7" Width="3.129889" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+</ClassDiagram>

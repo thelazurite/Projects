@@ -1,0 +1,14 @@
+c:\users\dylaneddies\documents\visual studio 2010\Projects\ToDoList\ToDoList\obj\x86\Debug\ToDoList.stetic.Images.resources
+c:\users\dylaneddies\documents\visual studio 2010\Projects\ToDoList\ToDoList\obj\x86\Debug\ToDoList.csproj.GenerateResource.Cache
+c:\users\dylaneddies\documents\visual studio 2010\Projects\ToDoList\ToDoList\bin\Debug\ToDoList.exe
+c:\users\dylaneddies\documents\visual studio 2010\Projects\ToDoList\ToDoList\bin\Debug\ToDoList.pdb
+c:\users\dylaneddies\documents\visual studio 2010\Projects\ToDoList\ToDoList\obj\x86\Debug\ToDoList.exe
+c:\users\dylaneddies\documents\visual studio 2010\Projects\ToDoList\ToDoList\obj\x86\Debug\ToDoList.pdb
+C:\Users\DylanEddies\Documents\Visual Studio 2010\Projects\ToDoList\ToDoList\obj\x86\Debug\ToDoList.csprojResolveAssemblyReference.cache
+F:\Projects\ToDoList\ToDoList\obj\x86\Debug\ToDoList.csprojResolveAssemblyReference.cache
+F:\Projects\ToDoList\ToDoList\obj\x86\Debug\ToDoList.stetic.Images.resources
+F:\Projects\ToDoList\ToDoList\obj\x86\Debug\ToDoList.csproj.GenerateResource.Cache
+F:\Projects\ToDoList\ToDoList\obj\x86\Debug\ToDoList.exe
+F:\Projects\ToDoList\ToDoList\obj\x86\Debug\ToDoList.pdb
+F:\Projects\ToDoList\ToDoList\bin\Debug\ToDoList.exe
+F:\Projects\ToDoList\ToDoList\bin\Debug\ToDoList.pdb
