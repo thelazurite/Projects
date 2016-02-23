@@ -1,0 +1,408 @@
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Projects.exe.config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\autopoint
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\croco-0.6-config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\freetype-config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gdbus-codegen
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gettext.sh
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gettextize
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\glib-gettextize
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\glib-mkenums
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gtk-update-icon-cache.exe.manifest
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libpng-config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libpng15-config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\xml2-config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\envsubst.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\fc-cache.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\fc-cat.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\fc-list.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\fc-match.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\fc-pattern.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\fc-query.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\fc-scan.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gdbus.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gdk-pixbuf-csource.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gdk-pixbuf-pixdata.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gdk-pixbuf-query-loaders.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gettext.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gio-querymodules.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\glib-compile-resources.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\glib-compile-schemas.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\glib-genmarshal.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gobject-query.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gresource.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gsettings.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gspawn-win32-helper-console.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gspawn-win32-helper.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gtk-query-immodules-3.0.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gtk-update-icon-cache.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gtk3-demo-application.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gtk3-demo.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gtk3-widget-factory.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libatk-1.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libcairo-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libcairo-gobject-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libcairo-script-interpreter-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libcroco-0.6-3.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libffi-6.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libfontconfig-1.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libfreetype-6.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libgailutil-3-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libgdk-3-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libgdk_pixbuf-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libgio-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libglib-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libgmodule-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libgobject-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libgthread-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libgtk-3-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libiconv-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libintl-8.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libjasper-1.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libjpeg-9.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\liblzma-5.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libpango-1.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libpangocairo-1.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libpangoft2-1.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libpangowin32-1.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libpixman-1-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libpng15-15.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\librsvg-2-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libtiff-5.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libxml2-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\ngettext.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\pango-querymodules.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\pango-view.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\pkg-config.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\pthreadGC2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\zlib1.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\envsubst.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\fc-cache.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\fc-cat.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\fc-list.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\fc-match.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\fc-pattern.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\fc-query.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\fc-scan.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gdbus.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gdk-pixbuf-csource.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gdk-pixbuf-pixdata.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gdk-pixbuf-query-loaders.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gettext.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gio-querymodules.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\glib-compile-resources.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\glib-compile-schemas.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\glib-genmarshal.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gobject-query.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gresource.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gsettings.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gspawn-win64-helper-console.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gspawn-win64-helper.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gtk-query-immodules-3.0.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gtk-update-icon-cache.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gtk3-demo-application.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gtk3-demo.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\gtk3-widget-factory.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libasprintf-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libatk-1.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libcairo-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libcairo-gobject-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libcairo-script-interpreter-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libcharset-1.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libcroco-0.6-3.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libffi-6.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libfontconfig-1.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libfreetype-6.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgailutil-3-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgdk-3-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgdk_pixbuf-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgettextlib-0-18-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgettextpo-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgettextsrc-0-18-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgio-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libglib-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgmodule-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgobject-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgthread-2.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libgtk-3-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libiconv-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libintl-8.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libjasper-1.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libjpeg-9.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\liblzma-5.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libpango-1.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libpangocairo-1.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libpangoft2-1.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libpangowin32-1.0-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libpixman-1-0.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libpng15-15.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\librsvg-2-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libtiff-5.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\libxml2-2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\ngettext.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\pango-querymodules.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\pango-view.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\pkg-config.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\pthreadGC2.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\xmllint.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk64\bin\zlib1.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\calendar.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\CircledCritical.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\CircledError.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\CircledExit.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\CircledMinus.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\CircledNew.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\CircledOpen.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\CircledPlus.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\CircledQuestion.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\CircledSave.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\installer-logo-010.bmp
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\installer-logo-no-version.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\todo.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\autopoint
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\croco-0.6-config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\freetype-config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gdbus-codegen
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gettext.sh
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gettextize
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\glib-gettextize
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\glib-mkenums
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\gtk-update-icon-cache.exe.manifest
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libpng-config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\libpng15-config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\gtk32\bin\xml2-config
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Content\img\splash.png
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Projects.exe.manifest
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Projects.application
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Projects.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Projects.pdb
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\atk-sharp.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\cairo-sharp.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\EntityFramework.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\gdk-sharp.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\gio-sharp.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\glade-sharp.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\glib-sharp.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\gtk-sharp.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Mono.Cairo.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\Mono.Posix.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\pango-sharp.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\SQLite.Designer.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\System.Data.SQLite.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\System.Data.SQLite.EF6.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\System.Data.SQLite.Linq.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\EnvDTE.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\stdole.dll
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\glade-sharp.pdb
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\SQLite.Designer.pdb
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\System.Data.SQLite.pdb
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\System.Data.SQLite.EF6.pdb
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\System.Data.SQLite.Linq.pdb
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\bin\x86\Debug\EnvDTE.xml
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\obj\x86\Debug\Projects.csprojResolveAssemblyReference.cache
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\obj\x86\Debug\Projects.TrustInfo.xml
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\obj\x86\Debug\Projects.exe.manifest
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\obj\x86\Debug\Projects.application
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\obj\x86\Debug\Projects.exe
+C:\Users\thelazurite\Documents\Visual Studio 2015\Projects\ToDoListGnome3\Projects\obj\x86\Debug\Projects.pdb
+D:\Projects\Projects\obj\x86\Debug\Projects.csprojResolveAssemblyReference.cache
+D:\Projects\Projects\obj\x86\Debug\Projects.exe
+D:\Projects\Projects\obj\x86\Debug\Projects.pdb
+F:\Projects\Projects\bin\x86\Debug\Projects.exe.config
+F:\Projects\Projects\obj\x86\Debug\Projects.exe
+F:\Projects\Projects\obj\x86\Debug\Projects.pdb
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Projects.exe.config
+C:\Users\thelazurite\Desktop\projects\Projects\obj\x86\Debug\Projects.exe
+C:\Users\thelazurite\Desktop\projects\Projects\obj\x86\Debug\Projects.pdb
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\autopoint
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\croco-0.6-config
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\freetype-config
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gdbus-codegen
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gettext.sh
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gettextize
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\glib-gettextize
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\glib-mkenums
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libpng-config
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libpng15-config
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\xml2-config
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\envsubst.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\fc-cache.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\fc-cat.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\fc-list.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\fc-match.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\fc-pattern.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\fc-query.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\fc-scan.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gdbus.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gdk-pixbuf-csource.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gdk-pixbuf-pixdata.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gdk-pixbuf-query-loaders.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gettext.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gio-querymodules.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\glib-compile-resources.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\glib-compile-schemas.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\glib-genmarshal.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gobject-query.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gresource.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gsettings.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gspawn-win32-helper-console.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gspawn-win32-helper.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gtk-query-immodules-3.0.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gtk-update-icon-cache.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gtk3-demo-application.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gtk3-demo.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gtk3-widget-factory.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libatk-1.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libcairo-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libcairo-gobject-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libcairo-script-interpreter-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libcroco-0.6-3.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libffi-6.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libfontconfig-1.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libfreetype-6.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libgailutil-3-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libgdk-3-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libgdk_pixbuf-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libgio-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libglib-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libgmodule-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libgobject-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libgthread-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libgtk-3-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libiconv-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libintl-8.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libjasper-1.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libjpeg-9.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\liblzma-5.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libpango-1.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libpangocairo-1.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libpangoft2-1.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libpangowin32-1.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libpixman-1-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libpng15-15.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\librsvg-2-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libtiff-5.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libxml2-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\ngettext.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\pango-querymodules.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\pango-view.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\pkg-config.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\pthreadGC2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\zlib1.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\envsubst.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\fc-cache.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\fc-cat.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\fc-list.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\fc-match.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\fc-pattern.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\fc-query.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\fc-scan.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gdbus.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gdk-pixbuf-csource.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gdk-pixbuf-pixdata.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gdk-pixbuf-query-loaders.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gettext.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gio-querymodules.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\glib-compile-resources.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\glib-compile-schemas.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\glib-genmarshal.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gobject-query.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gresource.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gsettings.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gspawn-win64-helper-console.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gspawn-win64-helper.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gtk-query-immodules-3.0.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gtk-update-icon-cache.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gtk3-demo-application.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gtk3-demo.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gtk3-widget-factory.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libasprintf-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libatk-1.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libcairo-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libcairo-gobject-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libcairo-script-interpreter-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libcharset-1.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libcroco-0.6-3.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libffi-6.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libfontconfig-1.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libfreetype-6.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgailutil-3-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgdk-3-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgdk_pixbuf-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgettextlib-0-18-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgettextpo-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgettextsrc-0-18-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgio-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libglib-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgmodule-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgobject-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgthread-2.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libgtk-3-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libiconv-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libintl-8.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libjasper-1.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libjpeg-9.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\liblzma-5.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libpango-1.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libpangocairo-1.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libpangoft2-1.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libpangowin32-1.0-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libpixman-1-0.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libpng15-15.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\librsvg-2-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libtiff-5.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\libxml2-2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\ngettext.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\pango-querymodules.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\pango-view.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\pkg-config.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\pthreadGC2.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\xmllint.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\zlib1.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\calendar.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\CircledCritical.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\CircledError.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\CircledExit.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\CircledMinus.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\CircledNew.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\CircledOpen.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\CircledPlus.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\CircledQuestion.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\CircledSave.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\installer-logo-010.bmp
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\installer-logo-no-version.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\todo.ico
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\todo.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\autopoint
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\croco-0.6-config
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\freetype-config
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gdbus-codegen
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gettext.sh
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gettextize
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\glib-gettextize
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\glib-mkenums
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\gtk-update-icon-cache.exe.manifest
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libpng-config
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\libpng15-config
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk32\bin\xml2-config
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\gtk64\bin\gtk-update-icon-cache.exe.manifest
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Content\img\splash.png
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Projects.exe
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Projects.pdb
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Projects.exe.CodeAnalysisLog.xml
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Projects.exe.lastcodeanalysissucceeded
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\atk-sharp.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\cairo-sharp.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\EntityFramework.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\EntityFramework.SqlServer.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\gdk-sharp.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\gio-sharp.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\glib-sharp.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\gtk-sharp.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Mono.Cairo.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\Mono.Posix.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\pango-sharp.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\System.Data.SQLite.dll
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\System.Data.SQLite.xml
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\EntityFramework.xml
+C:\Users\thelazurite\Desktop\projects\Projects\bin\x86\Debug\EntityFramework.SqlServer.xml
+C:\Users\thelazurite\Desktop\projects\Projects\obj\x86\Debug\Projects.csprojResolveAssemblyReference.cache

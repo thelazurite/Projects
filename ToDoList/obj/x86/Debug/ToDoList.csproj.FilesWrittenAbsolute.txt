@@ -1,6 +1,0 @@
-/Volumes/12072805DE/ToDoList/ToDoList/obj/x86/Debug/.NETFramework,Version=v4.0,Profile=Client.AssemblyAttribute.cs
-/Volumes/12072805DE/ToDoList/ToDoList/obj/x86/Debug/ToDoList.stetic.Images.resources
-/Volumes/12072805DE/ToDoList/ToDoList/obj/x86/Debug/ToDoList.exe
-/Volumes/12072805DE/ToDoList/ToDoList/bin/Debug/ToDoList.exe.mdb
-/Volumes/12072805DE/ToDoList/ToDoList/bin/Debug/ToDoList.exe
-/Volumes/12072805DE/ToDoList/ToDoList/obj/x86/Debug/ToDoList.exe.mdb
