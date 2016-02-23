@@ -7,7 +7,7 @@ Projects is a simple Todo list application written in C#
 * Operating system:
      * Linux tested.
      * Should also work on Mac OS X but has not been tested
-     * Windows is currently in-compatible but a work-around is being worked on
+     * Windows is currently incompatible but a fix is being worked on
 
 * Dependencies:
     * GTK3
