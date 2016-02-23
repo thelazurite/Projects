@@ -13,10 +13,8 @@ namespace Projects.main
 {
     public sealed partial class ProjectWindow : Window
     {
-        //TODO: this comment is ironic
-
-        // create a read-only instance of the database connection
-		private readonly SqliteConnection _dbConnection;
+       // create a read-only instance of the database connection
+	private readonly SqliteConnection _dbConnection;
 
         // list used to store sql commands before they are saved to the database
         private List<string> _sqlList;
