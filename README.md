@@ -1,25 +1,24 @@
-# Projects 0.1.1 release readme #
+# Projects 0.2.0 release readme #
 
-Projects is a simple Todo list application written in C#
+Projects is a simple Task managment application which is written in C#
 
 ### Requirements ###
 
 * Operating system:
-     * Linux tested.
-     * Should also work on Mac OS X but has not been tested
-     * Windows is currently incompatible but a fix is being worked on
+     * Windows/Linux/Mac OS should be compatible with the software. 
+     * Please let me know if you run into any issues regarding compatibility/bugs
 
 * Dependencies:
-    * GTK3
-    * SQLite 3 
-    * .NET/Mono version 4.5.1
+    * GTK3/GTK+ [(Link to git here)](https://github.com/GNOME/gtk) - Licensed under LGPL-2.1
+	* GTK-Sharp [(Link to git here)](https://github.com/mono/gtk-sharp) (Binaries are already included in project) - Licensed under LGPL-2.1
+    * [SQLite 3](https://system.data.sqlite.org/index.html/doc/trunk/www/index.wiki) - Public Domain
+    * Usage of .NET/Mono version 4.6
+    * Latest version of MonoDevelop/Visual Studio 2015 should be sufficient to build source code. 
 
 ### Work in progress/Planned features ###
-* Better saving (Confirmation dialogue before closing)
 * Toggle visibility of Project items by category
-* Ability to mark off completed project items.
-* Completion dates for project items should be marked in bold on the main calendar.
-* View descriptions of project items
+* Ability to mark tasks as completed
+* View descriptions for tasks.
 
 ### Contact Me ###
-E-mail: [dylan.eddies.1996@outlook.com](mailto:dylan.eddies.1996@outlook.com)
+E-mail: [me@dylaneddies.co.uk](mailto:me@dylaneddies.co.uk)
