@@ -42,7 +42,7 @@ namespace Projects.main.backend
 
         public override void DeleteFromDb()
         {
-            SqlDelete = new SQLiteCommand("delete from tblTodoItems where todoId = '@id'");
+            SqlDelete = new SQLiteCommand("delete from tblTodoItems where todoId = @id");
             SqlDelete.Parameters.Add(new SQLiteParameter("@id", Id));
 
             base.DeleteFromDb();
