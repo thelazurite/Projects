@@ -29,13 +29,13 @@ namespace Projects.main
         private Label _categoryDescriptionLabel;
         private TextView _categoryDescription;
 
-        private TreeView _taskListTreeView;
-        private TreeViewColumn _todoItemId;
-        private TreeViewColumn _todoItemName;
-        private TreeViewColumn _todoItemPriority;
-        private TreeViewColumn _todoItemCategory;
-        private TreeViewColumn _todoItemStartDate;
-        private TreeViewColumn _todoItemFinishDate;
+        private TreeView _mainView;
+        private TreeViewColumn _taskId;
+        private TreeViewColumn _taskName;
+        private TreeViewColumn _taskPriority;
+        private TreeViewColumn _taskCategory;
+        private TreeViewColumn _taskStartDate;
+        private TreeViewColumn _taskDueDate;
 
         private Notebook _noteBook;
 
@@ -248,7 +248,11 @@ namespace Projects.main
                 Name = "NotebookContainer",
                 Spacing = 3
             };
-            _noteBook = new Notebook();
+
+            _noteBook = new Notebook
+            {
+                Scrollable = true
+            };
 
             noteBookContainer.Add(_noteBook);
             var noteBookContainerChild = (Box.BoxChild) noteBookContainer[_noteBook];
@@ -324,11 +328,11 @@ namespace Projects.main
             _categoryTreeView.RowActivated += CategoryTreeView_RowActivated;
             #endregion categoryTable_properties
 
-            #region Todo table properties
+            #region MainView properties
 
-            _taskListTreeView = new TreeView();
+            _mainView = new TreeView();
             
-            _todoItemId = new TreeViewColumn
+            _taskId = new TreeViewColumn
             {
                 Title = "ID",
                 Resizable = true,
@@ -340,45 +344,45 @@ namespace Projects.main
                 #endif
             };
 
-            var todoIdCell = new CellRendererText();
-            _todoItemId.PackStart(todoIdCell, false);
-            _todoItemId.SetCellDataFunc(todoIdCell, RenderTaskItemId);
+            var taslIdCell = new CellRendererText();
+            _taskId.PackStart(taslIdCell, false);
+            _taskId.SetCellDataFunc(taslIdCell, RenderTaskItemId);
 
-            _todoItemName = new TreeViewColumn {Title = "Title", Resizable = true };
-            var todoNameCell = new CellRendererText();
-            _todoItemName.PackStart(todoNameCell, false);
-            _todoItemName.SetCellDataFunc(todoNameCell, RenderTaskItemName);
+            _taskName = new TreeViewColumn {Title = "Title", Resizable = true };
+            var taskNameCell = new CellRendererText();
+            _taskName.PackStart(taskNameCell, false);
+            _taskName.SetCellDataFunc(taskNameCell, RenderTaskItemName);
 
-            _todoItemCategory = new TreeViewColumn {Title = "Category", Resizable = true };
-            var todoCategoryCell = new CellRendererText();
-            _todoItemCategory.PackStart(todoCategoryCell, false);
-            _todoItemCategory.SetCellDataFunc(todoCategoryCell, RenderTaskItemCategory);
+            _taskCategory = new TreeViewColumn {Title = "Category", Resizable = true };
+            var taskCategoryCell = new CellRendererText();
+            _taskCategory.PackStart(taskCategoryCell, false);
+            _taskCategory.SetCellDataFunc(taskCategoryCell, RenderTaskItemCategory);
 
-            _todoItemPriority = new TreeViewColumn {Title = "Priority", Resizable = true };
-            var todoPriorityCell = new CellRendererText();
-            _todoItemPriority.PackStart(todoPriorityCell, false);
-            _todoItemPriority.SetCellDataFunc(todoPriorityCell, RenderTaskItemPriority);
+            _taskPriority = new TreeViewColumn {Title = "Priority", Resizable = true };
+            var taskPriorityCell = new CellRendererText();
+            _taskPriority.PackStart(taskPriorityCell, false);
+            _taskPriority.SetCellDataFunc(taskPriorityCell, RenderTaskItemPriority);
 
-            _todoItemStartDate = new TreeViewColumn {Title = "Start Date", Resizable = true };
-            var todoStartCell = new CellRendererText();
-            _todoItemStartDate.PackStart(todoStartCell, false);
-            _todoItemStartDate.SetCellDataFunc(todoStartCell, RenderTaskItemStart);
+            _taskStartDate = new TreeViewColumn {Title = "Start Date", Resizable = true };
+            var taskStartCell = new CellRendererText();
+            _taskStartDate.PackStart(taskStartCell, false);
+            _taskStartDate.SetCellDataFunc(taskStartCell, RenderTaskItemStart);
 
-            _todoItemFinishDate = new TreeViewColumn {Title = "Due Date",Resizable = true};
+            _taskDueDate = new TreeViewColumn {Title = "Due Date",Resizable = true};
             var todoFinishCell = new CellRendererText();
-            _todoItemFinishDate.PackStart(todoFinishCell, true);
-            _todoItemFinishDate.SetCellDataFunc(todoFinishCell, RenderTaskItemFinish);
+            _taskDueDate.PackStart(todoFinishCell, true);
+            _taskDueDate.SetCellDataFunc(todoFinishCell, RenderTaskItemFinish);
 
             TaskStore = new ListStore(typeof (Task));
 
-            _taskListTreeView.Model = TaskStore;
+            _mainView.Model = TaskStore;
 
-            _taskListTreeView.AppendColumn(_todoItemId);
-            _taskListTreeView.AppendColumn(_todoItemName);
-            _taskListTreeView.AppendColumn(_todoItemCategory);
-            _taskListTreeView.AppendColumn(_todoItemPriority);
-            _taskListTreeView.AppendColumn(_todoItemStartDate);
-            _taskListTreeView.AppendColumn(_todoItemFinishDate);
+            _mainView.AppendColumn(_taskId);
+            _mainView.AppendColumn(_taskName);
+            _mainView.AppendColumn(_taskCategory);
+            _mainView.AppendColumn(_taskPriority);
+            _mainView.AppendColumn(_taskStartDate);
+            _mainView.AppendColumn(_taskDueDate);
             #endregion 
 
             _fileActionProgBar = new ProgressBar()
@@ -459,9 +463,9 @@ namespace Projects.main
             todobarChild.Fill = false;
             todobarChild.Expand = false;
 
-            recordsWindow.Add(_taskListTreeView);
+            recordsWindow.Add(_mainView);
 
-            recordsWindow.AddWithViewport(_taskListTreeView);
+            recordsWindow.AddWithViewport(_mainView);
 
             taskViewContainer.Add(recordsWindow);
 

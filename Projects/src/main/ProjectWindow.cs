@@ -397,7 +397,7 @@ namespace Projects.main
         {
             ITreeModel model;
             TreeIter iter;
-            var selection = _taskListTreeView.Selection;
+            var selection = _mainView.Selection;
 
             if (!selection.GetSelected(out model, out iter)) return;
 
