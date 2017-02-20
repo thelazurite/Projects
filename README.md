@@ -18,7 +18,15 @@ Projects is a simple Task managment application which is written in C#
 ### Work in progress/Planned features ###
 * Toggle visibility of Project items by category
 * Ability to mark tasks as completed
-* View descriptions for tasks.
+* View descriptions for tasks
+* beautify Task/Category creation interfaces
+
+### Changes since last release ###
+* Calendar dates are now marked when there is a task due
+* Started to add functionality for adding tasks/categories in a tabbed layout instead of a pop-out window
+* Saving confirmation logic has been added
+* ALT shortcuts added to main window
+* General logic optimisations/modifications
 
 ### Contact Me ###
 E-mail: [me@dylaneddies.co.uk](mailto:me@dylaneddies.co.uk)
