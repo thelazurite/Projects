@@ -58,5 +58,28 @@ namespace Projects.Properties {
                 this["MultiWindow"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PreviousBrowseFolder {
+            get {
+                return ((string)(this["PreviousBrowseFolder"]));
+            }
+            set {
+                this["PreviousBrowseFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection PreviouslyOpenedFiles {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["PreviouslyOpenedFiles"]));
+            }
+            set {
+                this["PreviouslyOpenedFiles"] = value;
+            }
+        }
     }
 }

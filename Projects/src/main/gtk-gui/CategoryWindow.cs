@@ -1,4 +1,6 @@
-﻿using Gtk;
+﻿using System;
+using Gdk;
+using Gtk;
 using Projects.main.backend;
 
 namespace Projects.main
@@ -25,6 +27,7 @@ namespace Projects.main
             Gui.Initialize(this);
             Name = "CategoryWindow";
             Title = "New Category";
+            Icon = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\todo.png"));
             WindowPosition = WindowPosition.Center;
             KeepAbove = true;
             Resizable = false;
@@ -79,7 +82,7 @@ namespace Projects.main
                 WrapMode = WrapMode.WordChar,
                 HscrollPolicy = ScrollablePolicy.Natural,
             };
-
+            
             _buttonsHBox = new HBox
             {
                 Name = "buttonsFixed",
@@ -98,6 +101,7 @@ namespace Projects.main
                 Label = "Cancel",
             };
 
+
             _descWindow.HScrollbar.Visible = false;
             _descWindow.VScrollbar.Visible = true;
 
@@ -110,52 +114,52 @@ namespace Projects.main
 
             _containerVBox.Add(_nameFixed);
 
-            var nameFixedChild = ((Box.BoxChild)(_containerVBox[_nameFixed]));
+            var nameFixedChild = (Box.BoxChild)_containerVBox[_nameFixed];
             nameFixedChild.Expand = true;
             nameFixedChild.Padding = 5;
 
             _nameFixed.Add(_nameLabel);
-            var nameLabelChild = ((Fixed.FixedChild)(_nameFixed[_nameLabel]));
+            var nameLabelChild = (Fixed.FixedChild)_nameFixed[_nameLabel];
             nameLabelChild.X = 5;
             nameLabelChild.Y = 5;
 
             _containerVBox.Add(_nameEntry);
 
-            var nameEntryChild = ((Box.BoxChild)(_containerVBox[_nameEntry]));
+            var nameEntryChild = (Box.BoxChild)_containerVBox[_nameEntry];
             nameEntryChild.Expand = true;
 
             _containerVBox.Add(_descFixed);
-            var descFixedChild = ((Box.BoxChild)(_containerVBox[_descFixed]));
+            var descFixedChild = (Box.BoxChild) _containerVBox[_descFixed];
             descFixedChild.Expand = true;
             descFixedChild.Padding = 5;
 
             _descFixed.Add(_descLabel);
 
-            var descLabelChild = ((Fixed.FixedChild)(_descFixed[_descLabel]));
+            var descLabelChild = (Fixed.FixedChild)_descFixed[_descLabel];
             descLabelChild.X = 5;
             descLabelChild.Y = 5;
 
             _containerVBox.Add(_descWindow);
 
-            var descViewChild = ((Box.BoxChild)(_containerVBox[_descWindow]));
+            var descViewChild = (Box.BoxChild) _containerVBox[_descWindow];
             descViewChild.Expand = true;
 
             _descWindow.AddWithViewport(_descView);
 
             _containerVBox.Add(_buttonsHBox);
 
-            var buttonsChild = ((Box.BoxChild)(_containerVBox[_buttonsHBox]));
+            var buttonsChild = (Box.BoxChild) _containerVBox[_buttonsHBox];
             buttonsChild.Expand = false;
             buttonsChild.Padding = 5;
-
+            
             _buttonsHBox.Add(_addButton);
 
-            var addChild = ((Box.BoxChild)(_buttonsHBox[_addButton]));
+            var addChild = (Box.BoxChild) _buttonsHBox[_addButton];
             addChild.Expand = false;
             addChild.Padding = 5;
 
             _buttonsHBox.Add(_cancelButton);
-            var cancelChild = ((Box.BoxChild)(_buttonsHBox[_cancelButton]));
+            var cancelChild = (Box.BoxChild)_buttonsHBox[_cancelButton];
             cancelChild.Expand = false;
             cancelChild.Padding = 5;
 

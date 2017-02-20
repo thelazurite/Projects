@@ -1,170 +1,137 @@
-﻿using Gtk;
-using Projects.main;
-using Projects.main.backend;
-using System;
+﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Gtk;
+using Projects.main;
+using Projects.main.backend;
 using Application = Gtk.Application;
 
 namespace Projects
 {
+    /// <summary>
+    /// Main program class.
+    /// </summary>
     internal class Program
     {
-        /// <summary>
-        /// Main entry-point to the application
-        /// </summary>
-        /// <param name="args">command-line arguments.</param>
+        // use for single threaded applications (GTK requires this, otherwise the program will crash)  
         [STAThread]
         public static void Main(string[] args)
         {
-            // find the OS version and store the value
-            OS.Version = Environment.OSVersion.Platform.ToString();
-
-#if DEBUG
-			//write debug info
-			Console.WriteLine($"Projects is running on {OS.Version}\nWindows: {OS.isWindows()}");
-#endif
-
             try
             {
-                //initialize GLIB
+#if WIN64
+                // if the environment is 64-bit, add the 64-bit gtk binary location to the path env var
+                Environment.SetEnvironmentVariable("PATH",
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\gtk64\bin"));
+#elif WIN32
+                Environment.SetEnvironmentVariable("PATH",
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\gtk32\bin"));
+#endif
+                // initialize the GTK application
                 Application.Init();
+#if DEBUG
+                Console.WriteLine(
+                    $"{Properties.Settings.Default.LoadOnStartup} \n {Properties.Settings.Default.FileOnStartup}");
+#endif
 
-                // if the operating system is windows
-                if (OS.isWindows())
-                {
-                    // and the program is 64 bit..
-                    if (Environment.Is64BitProcess)
-                    {
-                        // set the path to the 64-bit GTK version
-                        Environment.SetEnvironmentVariable("PATH",
-                            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\gtk64\bin"));
-                    }
-                    else // otherwise
-                    {
-                        // default to the 32 bit version
-                        Environment.SetEnvironmentVariable("PATH",
-                            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\gtk32\bin"));
-                    }
+                // store system's default font in variable
+                var font = System.Drawing.SystemFonts.DefaultFont;
+                // set the font to the default font
+                Settings.Default.FontName = font.Name + " " + font.SizeInPoints;
+                // force usage of smooth font
+                Settings.Default.XftAntialias = 1;
+                Settings.Default.XftRgba = "rgb";
 
-                    // set the font to the system font and use anti-aliasing
-                    var font = System.Drawing.SystemFonts.DefaultFont;
-                    Settings.Default.FontName = font.Name + " " + font.SizeInPoints;
-                    Settings.Default.XftAntialias = 1;
-                    Settings.Default.XftRgba = "rgb";
-                }
-
-                // if command line arguments have been passed to the application
+                // if arguments have been passed to the program
                 if (args.Length != 0)
                 {
-                    // set file to the first argument set
+                    // store first argument
                     var file = args[0];
 
-                    // get the extension and store it
+                    // get the file's extension 
                     var extension = Path.GetExtension(file);
+                    //Console.WriteLine(extension);
 
-                    // when the extension isn't null, and the file exists and uses the projects file extension
-                    // and a lock file does not exist...
-                    if (extension != null &&
-                        ((File.Exists(file) && extension.Equals(".prf")) && !File.Exists(file + ".lk")))
-                    {
-                        // load the file
-                        Console.Write(file);
-                        var window = new ProjectWindow(file);
-                        window.Show();
-                    }
+                    // if the extension isn't null, the file exists and is of the right extension, and the lock file
+                    // does not exist,
+                    // load the main application with the argument passed to the program
+                    if (extension != null && File.Exists(file) && extension.Equals(".prj") && !File.Exists(file + ".lk"))
+                        new ProjectWindow(file).Show();
+                    // if the requirements are not met, then proceed with the startup process
                     else
-                    {
-                        // when conditions are not met continue to normal startup.
                         Startup();
-                    }
-                    // Run GLIB application
                     Application.Run();
+
                 }
+                // if no arguments have been passed then go to the startup process
                 else
-                {
-                    // startup normally if no arguments are set
                     Startup();
-                }
             }
-            catch (BadImageFormatException)
+            catch (DllNotFoundException dnfe)
             {
-                if (OS.isWindows())
+                if (!dnfe.Message.EndsWith(".dll"))
                 {
-                    MessageBox.Show((Environment.Is64BitProcess) ? "You are running a 64-bit version of Projects but have a 32-bit version of GTK has been detected." :
-                        "You are running a 32-bit version of Projects but a 64-bit version of GTK has been detected.",
-                            "Wrong architecture", MessageBoxButtons.OK, MessageBoxIcon.Error); //fall back to winforms
-                } else
-                {
-                    Console.WriteLine((Environment.Is64BitProcess) ? "You are running a 64-bit version of Projects but have a 32-bit version of GTK has been detected." :
-                        "You are running a 32-bit version of Projects but a 64-bit version of GTK has been detected.");
+                    // fall back to winforms messagebox if gtk dependency is missing 
+                    MessageBox.Show($"A file required by Projects is missing:\n\n{dnfe.Message} .",
+                        "Missing prerequisite", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                 }
-            }
-            catch (DllNotFoundException ex)
-            {
-                if (OS.isWindows())
+                else if (dnfe.Message.EndsWith(".dll"))
                 {
-                    if (!ex.Message.EndsWith(".dll"))
-                    {
-                        MessageBox.Show($"A file required by Projects is missing:\n\n{ex.Message} .",
-                            "Missing prerequisite", MessageBoxButtons.OK, MessageBoxIcon.Error); //fall back to winforms
-                    }
-                    else if (ex.Message.EndsWith(".dll"))
-                    {
-                        MessageBox.Show($"A DLL file required by Projects is missing: {ex.Message}.",
-                            "Missing library", MessageBoxButtons.OK, MessageBoxIcon.Error); //fall back to winforms
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"A file required by Projects is missing: {ex.Message}");
+                    MessageBox.Show($"A DLL file required by Projects is missing: {dnfe.Message}.",
+                        "Missing library", MessageBoxButtons.OK, MessageBoxIcon.Error); //fall back to winforms
                 }
             }
         }
 
         /// <summary>
-        /// Start up this instance.
+        /// The start-up process logic executed on program launch
         /// </summary>
         private static void Startup()
         {
-            // check if the program is supposed to load a file at startup
+
+            // if the application has been set to load an application on start-up 
             if (Properties.Settings.Default.LoadOnStartup)
             {
-                // if so, retrieve the full path to the file
+                // store the location of the file in a variable
                 var file = Properties.Settings.Default.FileOnStartup;
 
-                // if the file exists and there is no lock file
+                // check to see if the file exists, and a lock file does not exist 
+                // load the main application with the startup file
                 if (File.Exists(file) && !File.Exists(file + ".lk"))
-                {
-                    //load the application with the file
-                    var window = new ProjectWindow(file);
-                    window.Show();
-                }
+                    new ProjectWindow(file).Show();
                 else
                 {
-                    // if a lock file does not exist
+                    // if a lockfile does not exist for the startup program 
                     if (!File.Exists(file + ".lk"))
                     {
-                        // the file can no longer be located so remove the settings
+                        // reset the the application settings for loading the file on startup
+                        // and save the changes made.
                         Properties.Settings.Default.LoadOnStartup = false;
                         Properties.Settings.Default.FileOnStartup = null;
                         Properties.Settings.Default.Save();
                     }
 
-                    // load application normally
-                    var window = new MainWindow();
-                    window.Show();
+#if DEBUG
+                        Console.WriteLine(
+                            $"{Properties.Settings.Default.LoadOnStartup} \n {Properties.Settings.Default.FileOnStartup}");
+#endif
+                    // show the welcome screen.
+                    new MainWindow().Show();
+                    
+
                 }
             }
+            // if there isn't a set file tot load on startup
             else
-            {
-                // load application normally when the settings have not been set
-                var window = new MainWindow();
-                window.Show();
-            }
-
-            // run GLIB application
+                // show the welcome screen
+                new MainWindow().Show();
+            // run the GTK application
             Application.Run();
+            PrjHandler.UnlockFile();
+#if DEBUG
+            Console.WriteLine("Press any key to close...");
+            Console.ReadKey();
+#endif
         }
     }
 }

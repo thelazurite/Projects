@@ -1,5 +1,5 @@
-﻿using Gtk;
-using System;
+﻿using System;
+using Gtk;
 
 namespace Projects.main
 {
@@ -14,5 +14,6 @@ namespace Projects.main
         {
             Destroy();
         }
+
     }
 }

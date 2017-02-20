@@ -1,13 +1,9 @@
-﻿<Properties StartupItem="Projects/Projects.csproj" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|WIN32" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Projects/src/main/ProjectWindow.cs">
+﻿<Properties StartupItem="Projects\Projects.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|WIN64" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Projects\App.config">
     <Files>
-      <File FileName="Projects/MainWindow.cs" Line="1" Column="1" />
-      <File FileName="Projects/src/main/ProjectWindow.cs" Line="363" Column="40" />
-      <File FileName="../../../../usr/lib/mono/4.5/Microsoft.Common.targets" Line="1" Column="1" />
-      <File FileName="Projects/src/main/gtk-gui/TodoWindow.cs" Line="1" Column="1" />
-      <File FileName="Projects/src/main/TodoWindow.cs" Line="39" Column="17" />
-      <File FileName="Projects/src/main/ProjectStart.cs" Line="1" Column="1" />
+      <File FileName="Projects\src\main\ProjectWindow.cs" Line="1" Column="1" />
+      <File FileName="Projects\App.config" Line="19" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

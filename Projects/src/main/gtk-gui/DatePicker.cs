@@ -1,4 +1,6 @@
-﻿using Gtk;
+﻿using System;
+using Gdk;
+using Gtk;
 using Projects.main.backend;
 
 namespace Projects.main
@@ -27,7 +29,9 @@ namespace Projects.main
 
         private void BuildInterface()
         {
+
             Gui.Initialize(this);
+            Icon = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\todo.png"));
             Name = "DatePicker";
             Title = "Set date";
             WindowPosition = WindowPosition.Mouse;
@@ -124,81 +128,81 @@ namespace Projects.main
 
             _containerVBox.Add(Calendar);
 
-            var calendarChild = ((Box.BoxChild)(_containerVBox[Calendar]));
+            var calendarChild = (Box.BoxChild) _containerVBox[Calendar];
             calendarChild.Padding = 5;
             calendarChild.Expand = true;
 
             _containerVBox.Add(_timeBox);
 
-            var timeChild = ((Box.BoxChild)(_containerVBox[_timeBox]));
+            var timeChild = (Box.BoxChild)_containerVBox[_timeBox];
             timeChild.Padding = 5;
             timeChild.Expand = true;
 
             _timeBox.Add(_hoursBox);
-            var hoursBoxChild = ((Box.BoxChild)(_timeBox[_hoursBox]));
+            var hoursBoxChild = (Box.BoxChild)_timeBox[_hoursBox];
             hoursBoxChild.Padding = 5;
             hoursBoxChild.Expand = true;
 
             _hoursBox.Add(_hoursLabel);
 
-            var hoursLabelChild = ((Box.BoxChild)(_hoursBox[_hoursLabel]));
+            var hoursLabelChild = (Box.BoxChild)_hoursBox[_hoursLabel];
             hoursLabelChild.Padding = 5;
             hoursLabelChild.Expand = true;
 
             _hoursBox.Add(HoursSpin);
 
-            var hoursSpinChild = ((Box.BoxChild)(_hoursBox[HoursSpin]));
+            var hoursSpinChild = (Box.BoxChild)_hoursBox[HoursSpin];
             hoursSpinChild.Padding = 5;
             hoursSpinChild.Expand = true;
 
             _timeBox.Add(_minutesBox);
-            var minutesBoxChild = ((Box.BoxChild)(_timeBox[_minutesBox]));
+            var minutesBoxChild = (Box.BoxChild)_timeBox[_minutesBox];
             minutesBoxChild.Padding = 5;
             minutesBoxChild.Expand = true;
 
             _minutesBox.Add(_minutesLabel);
 
-            var minutesLabelChild = ((Box.BoxChild)(_minutesBox[_minutesLabel]));
+            var minutesLabelChild = (Box.BoxChild)_minutesBox[_minutesLabel];
             minutesLabelChild.Padding = 5;
             minutesLabelChild.Expand = true;
 
             _minutesBox.Add(MinutesSpin);
 
-            var minutesSpinChild = ((Box.BoxChild)(_minutesBox[MinutesSpin]));
+            var minutesSpinChild = (Box.BoxChild)_minutesBox[MinutesSpin];
             minutesSpinChild.Padding = 5;
             minutesSpinChild.Expand = true;
 
             _timeBox.Add(_secondsBox);
-            var secondsBoxChild = ((Box.BoxChild)(_timeBox[_secondsBox]));
+            var secondsBoxChild = (Box.BoxChild)_timeBox[_secondsBox];
             secondsBoxChild.Padding = 5;
             secondsBoxChild.Expand = true;
 
             _secondsBox.Add(_secondsLabel);
 
-            var secondsLabelChild = ((Box.BoxChild)(_secondsBox[_secondsLabel]));
+            var secondsLabelChild = (Box.BoxChild)_secondsBox[_secondsLabel];
             secondsLabelChild.Padding = 5;
             secondsLabelChild.Expand = true;
 
             _secondsBox.Add(SecondsSpin);
 
-            var secondsSpinChild = ((Box.BoxChild)(_secondsBox[SecondsSpin]));
+            var secondsSpinChild = (Box.BoxChild)_secondsBox[SecondsSpin];
             secondsSpinChild.Padding = 5;
             secondsSpinChild.Expand = true;
 
             _containerVBox.Add(_buttonBox);
 
-            var boxchild = ((Box.BoxChild)(_containerVBox[_buttonBox]));
+            var boxchild = (Box.BoxChild) _containerVBox[_buttonBox];
             boxchild.Padding = 5;
             boxchild.Expand = true;
-
+            
             _buttonBox.Add(AcceptButton);
 
-            var acceptChild = ((Box.BoxChild)(_buttonBox[AcceptButton]));
+            var acceptChild = (Box.BoxChild) _buttonBox[AcceptButton];
             acceptChild.Padding = 5;
 
             _buttonBox.Add(_cancelButton);
 
-            var cancelChild = ((Box.BoxChild)(_buttonBox[_cancelButton]));
+            var cancelChild = (Box.BoxChild)_buttonBox[_cancelButton];
             cancelChild.Padding = 5;
 
             Add(_containerVBox);
@@ -209,6 +213,8 @@ namespace Projects.main
 
             DeleteEvent += OnDeleteEvent;
         }
+
+
 
         private void OnDeleteEvent(object o, DeleteEventArgs args)
         {
