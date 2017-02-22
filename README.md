@@ -1,4 +1,4 @@
-# Projects 0.2.0 release readme #
+# Projects 0.2.3 release readme #
 
 Projects is a simple Task managment application which is written in C#
 
@@ -21,7 +21,21 @@ Projects is a simple Task managment application which is written in C#
 * View descriptions for tasks
 * beautify Task/Category creation interfaces
 
-### Changes since last release ###
+### Known issues ###
+* Issue with interface elements on multi-monitor workstation set-ups not displaying on the same monitor as the main window
+* Application ignores user Primary window preference
+
+### Change Log ###
+
+#### [0.2.2] ####
+* Converted category window to VBox template/tab
+     * Disabled expansion of UI elements
+* Finished refactoring Projects.Cs
+
+#### [0.2.1] ####
+* General bugfixes and refactoring
+
+#### [0.2.0] ####
 * Calendar dates are now marked when there is a task due
 * Started to add functionality for adding tasks/categories in a tabbed layout instead of a pop-out window
 * Saving confirmation logic has been added
