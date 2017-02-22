@@ -14,6 +14,5 @@ namespace Projects.main
         {
             Destroy();
         }
-
     }
 }

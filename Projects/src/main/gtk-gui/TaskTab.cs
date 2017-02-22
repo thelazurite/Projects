@@ -5,41 +5,41 @@ namespace Projects.main
     public sealed partial class TaskTab
     {
         private readonly string[] _values = {"High", "Medium", "Low", "None"};
+        private Button _addButton;
 
-        private Fixed _nameFixed;
-        private Label _nameLabel;
-        private Entry _nameEntry;
-
-        private Fixed _descFixed;
-        private Label _descLabel;
-        private ScrolledWindow _descWindow;
-        private TextView _descView;
+        private HBox _buttonsHBox;
+        private Button _cancelButton;
+        private ComboBox _categoryBox;
 
         private Fixed _categoryFixed;
         private Label _categoryLabel;
-        private ComboBox _categoryBox;
+
+        private Fixed _descFixed;
+        private Label _descLabel;
+        private TextView _descView;
+        private ScrolledWindow _descWindow;
+        private Entry _endEntry;
+
+        private Fixed _endFixed;
+
+        private HBox _endHBox;
+        private Label _endLabel;
+        private Button _endPicker;
+        private Entry _nameEntry;
+
+        private Fixed _nameFixed;
+        private Label _nameLabel;
+        private ComboBox _priorityBox;
 
         private Fixed _priorityFixed;
         private Label _priorityLabel;
-        private ComboBox _priorityBox;
+        private Entry _startEntry;
 
         private Fixed _startFixed;
-        private Label _startLabel;
 
         private HBox _startHBox;
-        private Entry _startEntry;
+        private Label _startLabel;
         private Button _startPicker;
-
-        private Fixed _endFixed;
-        private Label _endLabel;
-
-        private HBox _endHBox;
-        private Entry _endEntry;
-        private Button _endPicker;
-
-        private HBox _buttonsHBox;
-        private Button _addButton;
-        private Button _cancelButton;
 
         private void BuildInterface()
         {
@@ -127,7 +127,7 @@ namespace Projects.main
 
             _priorityBox = new ComboBox(_values)
             {
-                Name = "priorityBox",
+                Name = "priorityBox"
             };
 
             _startFixed = new Fixed
@@ -205,7 +205,7 @@ namespace Projects.main
             _cancelButton = new Button
             {
                 Name = "cancelButton",
-                Label = "Cancel",
+                Label = "Cancel"
             };
 
 
@@ -222,34 +222,34 @@ namespace Projects.main
 
             Add(_nameFixed);
 
-            var nameFixedChild = (BoxChild)this[_nameFixed];
+            var nameFixedChild = (BoxChild) this[_nameFixed];
             nameFixedChild.Expand = true;
             nameFixedChild.Padding = 5;
 
             _nameFixed.Add(_nameLabel);
-            var nameLabelChild = (Fixed.FixedChild)_nameFixed[_nameLabel];
+            var nameLabelChild = (Fixed.FixedChild) _nameFixed[_nameLabel];
             nameLabelChild.X = 5;
             nameLabelChild.Y = 5;
 
             Add(_nameEntry);
 
-            var nameEntryChild = (BoxChild)this[_nameEntry];
+            var nameEntryChild = (BoxChild) this[_nameEntry];
             nameEntryChild.Expand = true;
 
             Add(_descFixed);
-            var descFixedChild = (BoxChild)this[_descFixed];
+            var descFixedChild = (BoxChild) this[_descFixed];
             descFixedChild.Expand = true;
             descFixedChild.Padding = 5;
 
             _descFixed.Add(_descLabel);
 
-            var descLabelChild = (Fixed.FixedChild)_descFixed[_descLabel];
+            var descLabelChild = (Fixed.FixedChild) _descFixed[_descLabel];
             descLabelChild.X = 5;
             descLabelChild.Y = 5;
 
             Add(_descWindow);
 
-            var descViewChild = (BoxChild)this[_descWindow];
+            var descViewChild = (BoxChild) this[_descWindow];
             descViewChild.Expand = true;
 
             _descWindow.AddWithViewport(_descView);
@@ -273,19 +273,19 @@ namespace Projects.main
 
             Add(_priorityFixed);
 
-            var priFixedChild = (BoxChild)this[_priorityFixed];
+            var priFixedChild = (BoxChild) this[_priorityFixed];
             priFixedChild.Expand = true;
             priFixedChild.Padding = 5;
 
             _priorityFixed.Add(_priorityLabel);
 
-            var priLabelChild = (Fixed.FixedChild)_priorityFixed[_priorityLabel];
+            var priLabelChild = (Fixed.FixedChild) _priorityFixed[_priorityLabel];
             priLabelChild.X = 5;
             priLabelChild.Y = 5;
 
             Add(_priorityBox);
 
-            var priBoxChild = (BoxChild)this[_priorityBox];
+            var priBoxChild = (BoxChild) this[_priorityBox];
             priBoxChild.Expand = true;
 
             Add(_startFixed);
@@ -318,46 +318,46 @@ namespace Projects.main
 
             Add(_endFixed);
 
-            var endFixedChild = (BoxChild)this[_endFixed];
+            var endFixedChild = (BoxChild) this[_endFixed];
             endFixedChild.Expand = true;
             endFixedChild.Padding = 5;
 
             _endFixed.Add(_endLabel);
 
-            var endLabelChild = (Fixed.FixedChild)_endFixed[_endLabel];
+            var endLabelChild = (Fixed.FixedChild) _endFixed[_endLabel];
             endLabelChild.X = 5;
             endLabelChild.Y = 5;
 
             Add(_endHBox);
 
-            var endBoxChild = (BoxChild)this[_endHBox];
+            var endBoxChild = (BoxChild) this[_endHBox];
             endBoxChild.Expand = true;
             endBoxChild.Padding = 5;
 
             _endHBox.Add(_endEntry);
 
-            var endEntryChild = (BoxChild)_endHBox[_endEntry];
+            var endEntryChild = (BoxChild) _endHBox[_endEntry];
             endEntryChild.Expand = false;
 
             _endHBox.Add(_endPicker);
 
-            var endPickerChild = (BoxChild)_endHBox[_endPicker];
+            var endPickerChild = (BoxChild) _endHBox[_endPicker];
             endPickerChild.Expand = false;
 
             Add(_buttonsHBox);
 
-            var buttonsChild = (BoxChild)this[_buttonsHBox];
+            var buttonsChild = (BoxChild) this[_buttonsHBox];
             buttonsChild.Expand = false;
             buttonsChild.Padding = 5;
 
             _buttonsHBox.Add(_addButton);
 
-            var addChild = (BoxChild)_buttonsHBox[_addButton];
+            var addChild = (BoxChild) _buttonsHBox[_addButton];
             addChild.Expand = false;
             addChild.Padding = 5;
 
             _buttonsHBox.Add(_cancelButton);
-            var cancelChild = (BoxChild)_buttonsHBox[_cancelButton];
+            var cancelChild = (BoxChild) _buttonsHBox[_cancelButton];
             cancelChild.Expand = false;
             cancelChild.Padding = 5;
 

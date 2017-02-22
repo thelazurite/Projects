@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Gtk;
@@ -9,7 +10,7 @@ using Application = Gtk.Application;
 namespace Projects
 {
     /// <summary>
-    /// Main program class.
+    ///     Main program class.
     /// </summary>
     internal class Program
     {
@@ -35,7 +36,7 @@ namespace Projects
 #endif
 
                 // store system's default font in variable
-                var font = System.Drawing.SystemFonts.DefaultFont;
+                var font = SystemFonts.DefaultFont;
                 // set the font to the default font
                 Settings.Default.FontName = font.Name + " " + font.SizeInPoints;
                 // force usage of smooth font
@@ -61,7 +62,6 @@ namespace Projects
                     else
                         Startup();
                     Application.Run();
-
                 }
                 // if no arguments have been passed then go to the startup process
                 else
@@ -73,7 +73,7 @@ namespace Projects
                 {
                     // fall back to winforms messagebox if gtk dependency is missing 
                     MessageBox.Show($"A file required by Projects is missing:\n\n{dnfe.Message} .",
-                        "Missing prerequisite", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                        "Missing prerequisite", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (dnfe.Message.EndsWith(".dll"))
                 {
@@ -84,11 +84,10 @@ namespace Projects
         }
 
         /// <summary>
-        /// The start-up process logic executed on program launch
+        ///     The start-up process logic executed on program launch
         /// </summary>
         private static void Startup()
         {
-
             // if the application has been set to load an application on start-up 
             if (Properties.Settings.Default.LoadOnStartup)
             {
@@ -117,13 +116,11 @@ namespace Projects
 #endif
                     // show the welcome screen.
                     new MainWindow().Show();
-                    
-
                 }
             }
             // if there isn't a set file tot load on startup
             else
-                // show the welcome screen
+            // show the welcome screen
                 new MainWindow().Show();
             // run the GTK application
             Application.Run();

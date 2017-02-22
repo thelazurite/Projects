@@ -2,17 +2,17 @@
 using Gdk;
 using Gtk;
 using Projects.main.backend;
-using Image = Gtk.Image;
 
 namespace Projects.main
 {
     public partial class MainWindow
     {
-        private Fixed _containerFixed;
         private Image _backgroundImage;
-        private Button _openButton;
+        private Fixed _containerFixed;
 
         private Button _newButton;
+        private Button _openButton;
+
         private void BuildInterface()
         {
             Gui.Initialize(this);
@@ -35,7 +35,8 @@ namespace Projects.main
             _backgroundImage = new Image
             {
                 Name = "backgroundImage",
-                Pixbuf = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\splash.png"))
+                Pixbuf =
+                    new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\splash.png"))
             };
 
             _containerFixed.Add(_backgroundImage);
@@ -46,9 +47,9 @@ namespace Projects.main
 
             _openButton = new Button("_Open")
             {
-                Name = "openButton",
+                Name = "openButton"
             };
-           
+
             _openButton.Clicked += OpenButton_Clicked;
             _containerFixed.Add(_openButton);
             var openChild = (Fixed.FixedChild) _containerFixed[_openButton];
@@ -63,14 +64,14 @@ namespace Projects.main
             _newButton.Clicked += NewButton_Clicked;
 
             _containerFixed.Add(_newButton);
-            var newChild = (Fixed.FixedChild)_containerFixed[_newButton];
+            var newChild = (Fixed.FixedChild) _containerFixed[_newButton];
 
             newChild.X = 500;
             newChild.Y = 120;
 
             Add(_containerFixed);
             ShowAll();
-       
+
             DeleteEvent += OnDeleteEvent;
         }
 

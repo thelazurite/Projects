@@ -5,7 +5,16 @@ namespace Projects.main.backend
 {
     public class Task : DbItem
     {
-        public Task(string id, string name, string description, string category, string priority, DateTime startDate, DateTime end) : base("Task")
+        public string Category;
+        public string Description;
+        public DateTime DueDate;
+
+        public string Name;
+        public string Priority;
+        public DateTime StartDate;
+
+        public Task(string id, string name, string description, string category, string priority, DateTime startDate,
+            DateTime end) : base("Task")
         {
             Id = id;
             Name = name;
@@ -15,13 +24,6 @@ namespace Projects.main.backend
             StartDate = startDate;
             DueDate = end;
         }
-		
-        public string Name;
-        public string Description;
-        public string Category;
-        public string Priority;
-        public DateTime StartDate;
-        public DateTime DueDate;
 
         public override void AddToDb()
         {

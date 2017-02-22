@@ -3,48 +3,42 @@ using Gdk;
 using Gtk;
 using Projects.main.backend;
 using Action = Gtk.Action;
-using Label = Gtk.Label;
-using Menu = Gtk.Menu;
-using MenuItem = Gtk.MenuItem;
-using ProgressBar = Gtk.ProgressBar;
-using TreeView = Gtk.TreeView;
 
 namespace Projects.main
 {
     public sealed partial class ProjectWindow
     {
-        private Toolbar _categoryToolbar;
-
         private Action _addCategoryAction;
-        private Action _removeCategoryAction;
 
         private Action _addTaskItemAction;
-        private Action _removeTaskItemAction;
+        private TextView _categoryDescription;
 
-        private TreeView _categoryTreeView;
+        private Label _categoryDescriptionLabel;
         private TreeViewColumn _categoryItemId;
         private TreeViewColumn _categoryItemName;
         private TreeViewColumn _categoryItemToggle;
 
-        private Label _categoryDescriptionLabel;
-        private TextView _categoryDescription;
+        private VBox _categorySidebar;
+        private Toolbar _categoryToolbar;
+
+        private TreeView _categoryTreeView;
+
+        private ProgressBar _fileActionProgBar;
 
         private TreeView _mainView;
+
+        private Notebook _noteBook;
+        private Action _removeCategoryAction;
+        private Action _removeTaskItemAction;
+        private TreeViewColumn _taskCategory;
+        private TreeViewColumn _taskDueDate;
         private TreeViewColumn _taskId;
         private TreeViewColumn _taskName;
         private TreeViewColumn _taskPriority;
-        private TreeViewColumn _taskCategory;
         private TreeViewColumn _taskStartDate;
-        private TreeViewColumn _taskDueDate;
-
-        private Notebook _noteBook;
-
-        private VBox _categorySidebar;
+        public Calendar Calendar;
         public ListStore CategoryStore;
         public ListStore TaskStore;
-        public Calendar Calendar;
-
-        private ProgressBar _fileActionProgBar;
 
         private void BuildInterface()
         {
@@ -69,11 +63,11 @@ namespace Projects.main
             var fileMenuItem = new MenuItem("_File")
             {
                 Name = "fileMenuItem",
-                Submenu = fileMenu,
-
+                Submenu = fileMenu
             };
 
             #region Menubar items
+
             var fileNewMenuItem = new MenuItem("_New");
             fileNewMenuItem.Activated += FileNewMenuItem_OnActivated;
             fileMenu.Append(fileNewMenuItem);
@@ -86,7 +80,7 @@ namespace Projects.main
             fileMenu.Append(fileSaveMenuItem);
             fileSaveMenuItem.Activated += SaveItem_OnActivated;
 
-            var hsepfilemenu = new SeparatorMenuItem { Name = "FileMenuSeparator" };
+            var hsepfilemenu = new SeparatorMenuItem {Name = "FileMenuSeparator"};
             fileMenu.Append(hsepfilemenu);
 
             var fileExitMenuItem = new MenuItem("_Exit");
@@ -145,8 +139,8 @@ namespace Projects.main
                 "</toolbar>" +
                 "</ui>");
 
-            _categoryToolbar = (Toolbar)uiManager.GetWidget("/categoryToolbar");
-            _categoryToolbar.Events = (EventMask)8992;
+            _categoryToolbar = (Toolbar) uiManager.GetWidget("/categoryToolbar");
+            _categoryToolbar.Events = (EventMask) 8992;
             _categoryToolbar.Name = "catToolbar";
             _categoryToolbar.ShowArrow = false;
 
@@ -161,7 +155,7 @@ namespace Projects.main
             {
                 CanFocus = true,
                 Name = "calendar",
-                DisplayOptions = (CalendarDisplayOptions)35
+                DisplayOptions = (CalendarDisplayOptions) 35
             };
             Calendar.MonthChanged += Calendar_MonthChanged;
 
@@ -191,7 +185,7 @@ namespace Projects.main
 
             var categoryPane = new VPaned();
 
-            var categoryContainer = new ScrolledWindow()
+            var categoryContainer = new ScrolledWindow
             {
                 Name = "CategoryContainer",
                 ShadowType = ShadowType.None,
@@ -202,7 +196,7 @@ namespace Projects.main
             categoryContainer.HScrollbar.Visible = true;
             categoryContainer.VScrollbar.Visible = true;
 
-            var categoryContainerLabel = new Label()
+            var categoryContainerLabel = new Label
             {
                 Name = "CategoryContainerLabel"
             };
@@ -210,7 +204,7 @@ namespace Projects.main
             var categoryDescriptionScroll = new ScrolledWindow
             {
                 Name = "categoryDescriptionScroll",
-                ShadowType = (ShadowType)1,
+                ShadowType = (ShadowType) 1,
                 VscrollbarPolicy = PolicyType.Automatic,
                 HscrollbarPolicy = PolicyType.Automatic
             };
@@ -264,7 +258,7 @@ namespace Projects.main
                 Name = "ToDoTableListContainer",
                 Spacing = 3
             };
-            
+
             uiManager.AddUiFromString(
                 "<ui>" +
                 "<toolbar name='todoToolbar'>" +
@@ -273,19 +267,18 @@ namespace Projects.main
                 "</toolbar>" +
                 "</ui>");
 
-            var todoToolbar = (Toolbar)uiManager.GetWidget("/todoToolbar");
-            todoToolbar.Events = (EventMask)8992;
+            var todoToolbar = (Toolbar) uiManager.GetWidget("/todoToolbar");
+            todoToolbar.Events = (EventMask) 8992;
             todoToolbar.Name = "todoToolbar";
             todoToolbar.ShowArrow = false;
 
             var recordsWindow = new ScrolledWindow
             {
                 Name = "recordsWindow",
-                ShadowType = (ShadowType)1,
+                ShadowType = (ShadowType) 1,
                 VscrollbarPolicy = PolicyType.Automatic,
                 HscrollbarPolicy = PolicyType.Automatic
             };
-
 
             #region Category table properties
 
@@ -307,13 +300,13 @@ namespace Projects.main
             _categoryItemId.PackStart(categoryIdCell, false);
             _categoryItemId.SetCellDataFunc(categoryIdCell, RenderCategoryId);
 
-            _categoryItemName = new TreeViewColumn {Title = "Category",Resizable = true};
+            _categoryItemName = new TreeViewColumn {Title = "Category", Resizable = true};
             var categoryNameCell = new CellRendererText();
             _categoryItemName.PackStart(categoryNameCell, false);
             _categoryItemName.SetCellDataFunc(categoryNameCell, RenderCategoryName);
             categoryNameCell.Edited += categoryItemNameCell_Edited;
 
-            _categoryItemToggle = new TreeViewColumn {Title = "Show", Resizable = true };
+            _categoryItemToggle = new TreeViewColumn {Title = "Show", Resizable = true};
             var categoryToggleCell = new CellRendererToggle();
             _categoryItemToggle.PackStart(categoryToggleCell, false);
             _categoryItemToggle.SetCellDataFunc(categoryToggleCell, RenderCategoryToggle);
@@ -326,20 +319,21 @@ namespace Projects.main
             _categoryTreeView.AppendColumn(_categoryItemName);
             _categoryTreeView.AppendColumn(_categoryItemToggle);
             _categoryTreeView.RowActivated += CategoryTreeView_RowActivated;
+
             #endregion categoryTable_properties
 
             #region MainView properties
 
             _mainView = new TreeView();
-            
+
             _taskId = new TreeViewColumn
             {
                 Title = "ID",
                 Resizable = true,
-                #if !DEBUG
+#if !DEBUG
                 Visible = false
-                #endif
-                #if DEBUG
+#endif
+#if DEBUG
                 Visible = true
                 #endif
             };
@@ -348,27 +342,27 @@ namespace Projects.main
             _taskId.PackStart(taslIdCell, false);
             _taskId.SetCellDataFunc(taslIdCell, RenderTaskItemId);
 
-            _taskName = new TreeViewColumn {Title = "Title", Resizable = true };
+            _taskName = new TreeViewColumn {Title = "Title", Resizable = true};
             var taskNameCell = new CellRendererText();
             _taskName.PackStart(taskNameCell, false);
             _taskName.SetCellDataFunc(taskNameCell, RenderTaskItemName);
 
-            _taskCategory = new TreeViewColumn {Title = "Category", Resizable = true };
+            _taskCategory = new TreeViewColumn {Title = "Category", Resizable = true};
             var taskCategoryCell = new CellRendererText();
             _taskCategory.PackStart(taskCategoryCell, false);
             _taskCategory.SetCellDataFunc(taskCategoryCell, RenderTaskItemCategory);
 
-            _taskPriority = new TreeViewColumn {Title = "Priority", Resizable = true };
+            _taskPriority = new TreeViewColumn {Title = "Priority", Resizable = true};
             var taskPriorityCell = new CellRendererText();
             _taskPriority.PackStart(taskPriorityCell, false);
             _taskPriority.SetCellDataFunc(taskPriorityCell, RenderTaskItemPriority);
 
-            _taskStartDate = new TreeViewColumn {Title = "Start Date", Resizable = true };
+            _taskStartDate = new TreeViewColumn {Title = "Start Date", Resizable = true};
             var taskStartCell = new CellRendererText();
             _taskStartDate.PackStart(taskStartCell, false);
             _taskStartDate.SetCellDataFunc(taskStartCell, RenderTaskItemStart);
 
-            _taskDueDate = new TreeViewColumn {Title = "Due Date",Resizable = true};
+            _taskDueDate = new TreeViewColumn {Title = "Due Date", Resizable = true};
             var todoFinishCell = new CellRendererText();
             _taskDueDate.PackStart(todoFinishCell, true);
             _taskDueDate.SetCellDataFunc(todoFinishCell, RenderTaskItemFinish);
@@ -383,9 +377,10 @@ namespace Projects.main
             _mainView.AppendColumn(_taskPriority);
             _mainView.AppendColumn(_taskStartDate);
             _mainView.AppendColumn(_taskDueDate);
-            #endregion 
 
-            _fileActionProgBar = new ProgressBar()
+            #endregion
+
+            _fileActionProgBar = new ProgressBar
             {
                 Name = "fileActionProgBar",
                 Visible = false
@@ -393,13 +388,13 @@ namespace Projects.main
 
             windowContainer.Add(mainMenu);
 
-            var menuChild = (Box.BoxChild)windowContainer[mainMenu];
+            var menuChild = (Box.BoxChild) windowContainer[mainMenu];
             menuChild.Fill = false;
             menuChild.Expand = false;
 
             _categorySidebar.Add(calendarExpander);
 
-            var sidebarChild = (Box.BoxChild)_categorySidebar[calendarExpander];
+            var sidebarChild = (Box.BoxChild) _categorySidebar[calendarExpander];
             sidebarChild.Position = 0;
             sidebarChild.Expand = false;
             sidebarChild.Fill = false;
@@ -407,7 +402,7 @@ namespace Projects.main
             categoryExpanderContainer.Add(_categoryToolbar);
             categoryExpanderContainer.Add(_categoryTreeView);
 
-            var toolbarChild = (Box.BoxChild)categoryExpanderContainer[_categoryToolbar];
+            var toolbarChild = (Box.BoxChild) categoryExpanderContainer[_categoryToolbar];
             toolbarChild.Expand = false;
             toolbarChild.Fill = false;
 
@@ -415,7 +410,7 @@ namespace Projects.main
 
             categoryPane.Add(categoryContainer);
 
-            var paneContainerChild = (Paned.PanedChild)categoryPane[categoryContainer];
+            var paneContainerChild = (Paned.PanedChild) categoryPane[categoryContainer];
             paneContainerChild.Resize = true;
 
             categoryContainer.AddWithViewport(categoryExpanderContainer);
@@ -425,25 +420,25 @@ namespace Projects.main
 
             categoryPane.Add(descriptionHBox);
 
-            var descriptionContainerChild = (Paned.PanedChild)categoryPane[descriptionHBox];
+            var descriptionContainerChild = (Paned.PanedChild) categoryPane[descriptionHBox];
             descriptionContainerChild.Resize = true;
 
 
             descriptionHBox.Add(descriptionFixed);
 
-            var descriptionFixedChild = (Box.BoxChild)descriptionHBox[descriptionFixed];
+            var descriptionFixedChild = (Box.BoxChild) descriptionHBox[descriptionFixed];
             descriptionFixedChild.Expand = false;
             descriptionFixedChild.Padding = 5;
 
             descriptionFixed.Add(_categoryDescriptionLabel);
 
-            var descriptionLabelChild = (Fixed.FixedChild)descriptionFixed[_categoryDescriptionLabel];
+            var descriptionLabelChild = (Fixed.FixedChild) descriptionFixed[_categoryDescriptionLabel];
             descriptionLabelChild.X = 5;
             descriptionLabelChild.Y = 0;
 
             descriptionHBox.Add(categoryDescriptionScroll);
 
-            var descriptionViewChild = (Box.BoxChild)descriptionHBox[categoryDescriptionScroll];
+            var descriptionViewChild = (Box.BoxChild) descriptionHBox[categoryDescriptionScroll];
             descriptionViewChild.Expand = true;
 
             categoryDescriptionScroll.Add(_categoryDescription);
@@ -452,14 +447,14 @@ namespace Projects.main
 
             _categorySidebar.Add(categoryExpander);
 
-            var sidebarchild = (Box.BoxChild)_categorySidebar[categoryExpander];
+            var sidebarchild = (Box.BoxChild) _categorySidebar[categoryExpander];
             sidebarchild.Position = 1;
 
             windowPane.Add(_categorySidebar);
 
             taskViewContainer.Add(todoToolbar);
 
-            var todobarChild = (Box.BoxChild)taskViewContainer[todoToolbar];
+            var todobarChild = (Box.BoxChild) taskViewContainer[todoToolbar];
             todobarChild.Fill = false;
             todobarChild.Expand = false;
 
@@ -471,7 +466,7 @@ namespace Projects.main
 
             taskViewContainer.Add(_fileActionProgBar);
 
-            var barChild = (Box.BoxChild)taskViewContainer[_fileActionProgBar];
+            var barChild = (Box.BoxChild) taskViewContainer[_fileActionProgBar];
             barChild.Expand = false;
             barChild.Fill = false;
 
@@ -496,8 +491,5 @@ namespace Projects.main
 
             _fileActionProgBar.Visible = false;
         }
-
-        
-
     }
 }

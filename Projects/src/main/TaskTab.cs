@@ -1,36 +1,37 @@
 ﻿using System;
 using System.Globalization;
-using Gdk;
 using GLib;
 using Gtk;
 using Projects.main.backend;
 using DateTime = System.DateTime;
+using Window = Gdk.Window;
 
 namespace Projects.main
 {
     public sealed partial class TaskTab : VBox
     {
-        public event Action<object, EventArgs> AddTaskHandler;
         private readonly ListStore _categories;
-        private DatePicker _window;
-        private DateTime _start;
+        private readonly IWrapper _parent;
         private DateTime _end;
-        private IWrapper _parent;
+        private DateTime _start;
+        private DatePicker _window;
 
         /// <summary>
-        /// Constructor for the Task Creation tab
+        ///     Constructor for the Task Creation tab
         /// </summary>
         /// <param name="categories">List to be provided to the window</param>
         /// <param name="parent">The parent Widget/Window</param>
         public TaskTab(ListStore categories, IWrapper parent)
         {
             _parent = parent;
-            ParentWindow = _parent as Gdk.Window;
+            ParentWindow = _parent as Window;
             // set the category list to the currently available categories
             _categories = categories;
             // builds the interface and displays it
             BuildInterface();
         }
+
+        public event Action<object, EventArgs> AddTaskHandler;
 
         private void CancelButton_Clicked(object sender, EventArgs e)
         {
@@ -39,11 +40,10 @@ namespace Projects.main
         }
 
         /// <summary>
-        /// Logic executed once the add button is pressed
+        ///     Logic executed once the add button is pressed
         /// </summary>
         private void AddButton_Clicked(object sender, EventArgs e)
         {
-
             // validate the data being provided 
 
             // if there has been no entry for a to-do item's name provided
@@ -71,17 +71,17 @@ namespace Projects.main
 
             //convert object to that of the category class
             var category = item as Category;
-            
+
             // get the currently seleted priority item
             var priority = _priorityBox.Active;
 
             // createes the to-do Item
             var todo = new Task
-            (
+                (
                 // create a new guid and convert it to a string
                 Guid.NewGuid().ToString(),
                 // get the text stored in the name entry field
-                _nameEntry.Text, 
+                _nameEntry.Text,
                 _descView.Buffer.Text,
                 // if the currently selected category id isn't null, select it - otherwise use an empty GUID value
                 category != null ? category.Id : Guid.Empty.ToString(),
@@ -89,7 +89,7 @@ namespace Projects.main
                 _values[priority == -1 ? 3 : priority],
                 // start and end dates
                 _start, _end
-            );
+                );
             AddTodo(todo, EventArgs.Empty);
 
             //Console.WriteLine(_categoryBox.Active);
@@ -134,9 +134,9 @@ namespace Projects.main
 
         private static void Func(ICellLayout cellLayout, CellRenderer cell, ITreeModel model, TreeIter iter)
         {
-                var item = (Category)model.GetValue(iter, 0);
-                var value = cell as CellRendererText;
-                if (value != null) value.Text = item.CategoryName;
+            var item = (Category) model.GetValue(iter, 0);
+            var value = cell as CellRendererText;
+            if (value != null) value.Text = item.CategoryName;
         }
     }
 }

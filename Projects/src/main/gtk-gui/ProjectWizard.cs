@@ -2,27 +2,25 @@
 using Gdk;
 using Gtk;
 using Projects.main.backend;
-using Label = Gtk.Label;
-using Button = Gtk.Button;
 
 namespace Projects.main
 {
     public partial class ProjectWizard
     {
+        private Button _cancelButton;
         private Fixed _containerFixed;
 
-        private Label _pathLabel;
+        private Button _createButton;
+        private Entry _fileEntry;
         private Label _fileLabel;
 
         private Entry _filepathEntry;
-        private Entry _fileEntry;
-
-        private Button _selectPathButton;
 
         private CheckButton _loadOnStartButton;
 
-        private Button _createButton;
-        private Button _cancelButton;
+        private Label _pathLabel;
+
+        private Button _selectPathButton;
 
         private void BuildInterface()
         {
@@ -33,7 +31,7 @@ namespace Projects.main
             Title = "Project Creation Wizard";
             WindowPosition = WindowPosition.Center;
             Resizable = false;
-            SetSizeRequest(300,140);
+            SetSizeRequest(300, 140);
 
             _containerFixed = new Fixed
             {
@@ -43,7 +41,7 @@ namespace Projects.main
 
             _pathLabel = new Label
             {
-                Name= "pathLabel",
+                Name = "pathLabel",
                 Text = "Location"
             };
 
@@ -122,14 +120,14 @@ namespace Projects.main
             _createButton = new Button
             {
                 Name = "createButton",
-                Label = "Create",
+                Label = "Create"
             };
 
             _createButton.Clicked += _createButton_Clicked;
 
             _containerFixed.Add(_createButton);
 
-            var createChild = (Fixed.FixedChild)_containerFixed[_createButton];
+            var createChild = (Fixed.FixedChild) _containerFixed[_createButton];
             createChild.X = 190;
             createChild.Y = 110;
 
@@ -147,8 +145,8 @@ namespace Projects.main
             cancelChild.Y = 110;
 
             Add(_containerFixed);
-            
-            ShowAll(); 
+
+            ShowAll();
             DeleteEvent += OnDeleteEvent;
         }
 

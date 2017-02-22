@@ -4,10 +4,22 @@ namespace Projects.main.backend
 {
     public class DbItem
     {
-        public string Type;
-        public string Id;
-
         public bool BeingEdited;
+        public string Id;
+        public string Type;
+
+        /// <summary>
+        ///     Creates a database Item.
+        /// </summary>
+        /// <param name="type">The type of database item being created</param>
+        public DbItem(string type)
+        {
+            Type = type;
+            IsAdding = false;
+            IsDeleting = false;
+            IsModifying = false;
+        }
+
         public bool IsAdding { get; set; }
         public bool IsDeleting { get; set; }
         public bool IsModifying { get; set; }
@@ -17,19 +29,7 @@ namespace Projects.main.backend
         public SQLiteCommand SqlModify { get; protected set; }
 
         /// <summary>
-        /// Creates a database Item. 
-        /// </summary>
-        /// <param name="type">The type of database item being created</param>  
-        public DbItem(string type)
-        {
-            Type = type;
-            IsAdding = false;
-            IsDeleting = false;
-            IsModifying = false;
-        }
-
-        /// <summary>
-        /// Handles database item addition logic
+        ///     Handles database item addition logic
         /// </summary>
         public virtual void AddToDb()
         {
@@ -37,7 +37,7 @@ namespace Projects.main.backend
         }
 
         /// <summary>
-        /// Handles database item deletion logic
+        ///     Handles database item deletion logic
         /// </summary>
         public virtual void DeleteFromDb()
         {
@@ -45,7 +45,7 @@ namespace Projects.main.backend
         }
 
         /// <summary>
-        /// Handles database item modification
+        ///     Handles database item modification
         /// </summary>
         internal void ModifyInDb()
         {
@@ -60,7 +60,7 @@ namespace Projects.main.backend
         }
 
         /// <summary>
-        /// Replaces Special characters so the DB doesn't crash/explode
+        ///     Replaces Special characters so the DB doesn't crash/explode
         /// </summary>
         /// <param name="str">String to have characters replaced</param>
         /// <returns>String without special characters</returns>
@@ -68,12 +68,11 @@ namespace Projects.main.backend
             => str.Replace("'", "&#39;").Replace("/", "&frasl;").Replace("\\", "&#92;");
 
         /// <summary>
-        /// Restores Special characters so the user doesn't panic.
+        ///     Restores Special characters so the user doesn't panic.
         /// </summary>
         /// <param name="str">String to have characters restored</param>
         /// <returns>String with special characters</returns>
         public static string RestoreSpecialChars(string str)
             => str.Replace("&#39;", "'").Replace("&frasl;", "/").Replace("&#92;", "\\");
-
     }
 }

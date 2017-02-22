@@ -1,27 +1,26 @@
-﻿using Gtk;
-using Projects.main.backend;
-using System;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Globalization;
 using System.IO;
-
+using System.Linq;
+using GLib;
+using Gtk;
+using Projects.main.backend;
 using static Projects.main.backend.PrjHandler;
 using Application = Gtk.Application;
-using Window = Gtk.Window;
-using WindowType = Gtk.WindowType;
+using DateTime = System.DateTime;
 
 namespace Projects.main
 {
     public sealed partial class ProjectWindow : Window
     {
-        private SQLiteConnection _dbConnection;
         private readonly List<DbItem> _sqlItems;
-        private bool ChangesMade => _sqlItems?.Count > 0;
+        private SQLiteConnection _dbConnection;
+
 
         /// <summary>
-        /// Constructor used when creating a new projects file
+        ///     Constructor used when creating a new projects file
         /// </summary>
         /// <param name="pathToFile">Where the file will be stored.</param>
         /// <param name="fileName">The file name</param>
@@ -75,6 +74,7 @@ namespace Projects.main
                 execute.ExecuteNonQuery();
 
                 _dbConnection.Close();
+
                 RefreshData();
             }
             else
@@ -83,7 +83,6 @@ namespace Projects.main
                 var window = new ProjectWindow(PathToFile);
                 window.Show();
             }
-
             Title = "Projects - " + PathToFile;
         }
 
@@ -102,6 +101,8 @@ namespace Projects.main
             _sqlItems = new List<DbItem>();
         }
 
+        private bool ChangesMade => _sqlItems?.Count > 0;
+
         private void UpdateCalendarMarks()
         {
             Calendar.ClearMarks();
@@ -116,7 +117,6 @@ namespace Projects.main
 
                 return false;
             });
-
         }
 
         private void RefreshData()
@@ -174,7 +174,6 @@ namespace Projects.main
 
             // Update calendar marks
             UpdateCalendarMarks();
-
         }
 
         private void OpenActionOnActivated(object sender, EventArgs eventArgs)
@@ -210,13 +209,14 @@ namespace Projects.main
 
         private void AddCategory_Clicked(object sender, EventArgs e)
         {
-
-            var window = new CategoryWindow();
-            window.Show();
+            var window = new CategoryTab(this);
             window.Destroyed += CategoryWindow_Destroyed;
             window.AddCategoryHandler += Window_AddCategoryHandler;
-            _addCategoryAction.BlockActivate();
-            _removeCategoryAction.BlockActivate();
+            var win = _noteBook.AppendPage(window, new Label("New Category"));
+            _noteBook.CurrentPage = win;
+            var windowNoteChild = (Notebook.NotebookChild) _noteBook[window];
+            windowNoteChild.Detachable = false;
+            windowNoteChild.TabFill = false;
         }
 
         private void Window_AddCategoryHandler(object sender, EventArgs e)
@@ -243,11 +243,11 @@ namespace Projects.main
             _noteBook.CurrentPage = win;
             var windowNoteChild = (Notebook.NotebookChild) _noteBook[window];
             windowNoteChild.Detachable = false;
-            windowNoteChild.TabFill = true;
+            windowNoteChild.TabFill = false;
         }
 
         /// <summary>
-        /// Handles the addition of task items.
+        ///     Handles the addition of task items.
         /// </summary>
         /// <param name="sender">The task item object</param>
         /// <param name="e">empty.</param>
@@ -377,7 +377,8 @@ namespace Projects.main
             if (del > 0)
             {
                 using (var md = new MessageDialog(this, DialogFlags.Modal, MessageType.Error,
-                    ButtonsType.Close, $"Cannot delete category '{category.CategoryName}'.\nThere are task items which use it."))
+                    ButtonsType.Close,
+                    $"Cannot delete category '{category.CategoryName}'.\nThere are task items which use it."))
                 {
                     md.Run();
                     md.Destroy();
@@ -573,7 +574,7 @@ namespace Projects.main
             args.RetVal = true;
         }
 
-        [GLib.ConnectBefore]
+        [ConnectBefore]
         // check if user wants to save before closing window
         private void OnDeleteEvent(object sender, DeleteEventArgs args)
         {
@@ -606,7 +607,7 @@ namespace Projects.main
         }
 
         /// <summary>
-        /// Method used to confirm if user wants to close the Project Window
+        ///     Method used to confirm if user wants to close the Project Window
         /// </summary>
         /// <returns></returns>
         private int ConfirmClose()
@@ -636,7 +637,6 @@ namespace Projects.main
                 closeConfirm.Destroy();
                 return pars;
             }
-
         }
 
         private void Calendar_MonthChanged(object sender, EventArgs e) => UpdateCalendarMarks();

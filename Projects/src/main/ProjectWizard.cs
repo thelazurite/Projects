@@ -2,14 +2,13 @@
 using System.IO;
 using System.Windows.Forms;
 using Gtk;
-using Projects.main.backend;
 
 namespace Projects.main
 {
     public partial class ProjectWizard : Window
     {
         /// <summary>
-        /// The project creation wizard. 
+        ///     The project creation wizard.
         /// </summary>
         public ProjectWizard() : base(WindowType.Toplevel)
         {
@@ -61,7 +60,7 @@ namespace Projects.main
         }
 
         /// <summary>
-        /// Triggered once the user presses the create button
+        ///     Triggered once the user presses the create button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -120,7 +119,6 @@ namespace Projects.main
                             }
                             cont = false;
                         }
-
                     }
                     else
                     {
