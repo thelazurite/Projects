@@ -1,5 +1,7 @@
 ﻿using Gtk;
 using Projects.main.backend;
+using Button = Gtk.Button;
+using Label = Gtk.Label;
 
 namespace Projects.main
 {
@@ -99,7 +101,7 @@ namespace Projects.main
             Add(_nameFixed);
 
             var nameFixedChild = (BoxChild) this[_nameFixed];
-            nameFixedChild.Expand = true;
+            nameFixedChild.Expand = false;
             nameFixedChild.Padding = 5;
 
             _nameFixed.Add(_nameLabel);
@@ -110,11 +112,11 @@ namespace Projects.main
             Add(_nameEntry);
 
             var nameEntryChild = (BoxChild) this[_nameEntry];
-            nameEntryChild.Expand = true;
+            nameEntryChild.Expand = false;
 
             Add(_descFixed);
             var descFixedChild = (BoxChild) this[_descFixed];
-            descFixedChild.Expand = true;
+            descFixedChild.Expand = false;
             descFixedChild.Padding = 5;
 
             _descFixed.Add(_descLabel);
@@ -126,7 +128,7 @@ namespace Projects.main
             Add(_descWindow);
 
             var descViewChild = (BoxChild) this[_descWindow];
-            descViewChild.Expand = true;
+            descViewChild.Expand = false;
 
             _descWindow.AddWithViewport(_descView);
 
@@ -146,6 +148,8 @@ namespace Projects.main
             var cancelChild = (BoxChild) _buttonsHBox[_cancelButton];
             cancelChild.Expand = false;
             cancelChild.Padding = 5;
+
+            Margin = 10;
 
             ShowAll();
 
