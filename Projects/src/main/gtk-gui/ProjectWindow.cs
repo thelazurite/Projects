@@ -44,7 +44,7 @@ namespace Projects.main
         {
             Gui.Initialize(this);
 
-            Name = "TodoList";
+            Name = "ProjectWindow";
             Title = "Projects";
             WindowPosition = WindowPosition.Center;
             Icon = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\todo.png"));
@@ -101,12 +101,12 @@ namespace Projects.main
             _removeCategoryAction.Activated += deleteCategory_Clicked;
             actionGrp.Add(_removeCategoryAction, null);
 
-            _addTaskItemAction = new Action("addToDoItemAction",
+            _addTaskItemAction = new Action("addTaskItemAction",
                 "New _Task", "Add a new task", "CircledPlus");
             _addTaskItemAction.Activated += AddTaskItem_Clicked;
             actionGrp.Add(_addTaskItemAction, null);
 
-            _removeTaskItemAction = new Action("removeToDoItemAction",
+            _removeTaskItemAction = new Action("removeTaskItemAction",
                 "Remove Task", "Removes the selected task", "CircledMinus");
             _removeTaskItemAction.Activated += DeleteTask_Clicked;
             actionGrp.Add(_removeTaskItemAction, null);
@@ -255,22 +255,22 @@ namespace Projects.main
 
             var taskViewContainer = new VBox
             {
-                Name = "ToDoTableListContainer",
+                Name = "TaskTableListContainer",
                 Spacing = 3
             };
 
             uiManager.AddUiFromString(
                 "<ui>" +
-                "<toolbar name='todoToolbar'>" +
-                "<toolitem name='addToDoItemAction' action='addToDoItemAction'/>" +
-                "<toolitem name='removeToDoItemAction' action='removeToDoItemAction'/>" +
+                "<toolbar name='taskToolbar'>" +
+                "<toolitem name='addTaskItemAction' action='addTaskItemAction'/>" +
+                "<toolitem name='removeTaskItemAction' action='removeTaskItemAction'/>" +
                 "</toolbar>" +
                 "</ui>");
 
-            var todoToolbar = (Toolbar) uiManager.GetWidget("/todoToolbar");
-            todoToolbar.Events = (EventMask) 8992;
-            todoToolbar.Name = "todoToolbar";
-            todoToolbar.ShowArrow = false;
+            var taskToolbar = (Toolbar) uiManager.GetWidget("/taskToolbar");
+            taskToolbar.Events = (EventMask) 8992;
+            taskToolbar.Name = "taskToolbar";
+            taskToolbar.ShowArrow = false;
 
             var recordsWindow = new ScrolledWindow
             {
@@ -363,9 +363,9 @@ namespace Projects.main
             _taskStartDate.SetCellDataFunc(taskStartCell, RenderTaskItemStart);
 
             _taskDueDate = new TreeViewColumn {Title = "Due Date", Resizable = true};
-            var todoFinishCell = new CellRendererText();
-            _taskDueDate.PackStart(todoFinishCell, true);
-            _taskDueDate.SetCellDataFunc(todoFinishCell, RenderTaskItemFinish);
+            var taskDueCell = new CellRendererText();
+            _taskDueDate.PackStart(taskDueCell, true);
+            _taskDueDate.SetCellDataFunc(taskDueCell, RenderTaskItemFinish);
 
             TaskStore = new ListStore(typeof (Task));
 
@@ -452,11 +452,11 @@ namespace Projects.main
 
             windowPane.Add(_categorySidebar);
 
-            taskViewContainer.Add(todoToolbar);
+            taskViewContainer.Add(taskToolbar);
 
-            var todobarChild = (Box.BoxChild) taskViewContainer[todoToolbar];
-            todobarChild.Fill = false;
-            todobarChild.Expand = false;
+            var taskbarChild = (Box.BoxChild) taskViewContainer[taskToolbar];
+            taskbarChild.Fill = false;
+            taskbarChild.Expand = false;
 
             recordsWindow.Add(_mainView);
 
