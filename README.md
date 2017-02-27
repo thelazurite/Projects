@@ -27,7 +27,8 @@ Projects is a simple Task managment application which is written in C#
 
 ### Change Log ###
 #### [0.2.3X] ###
-* Minor changes and bug fixes ( Issue#2 and Issue#3 )
+* Minor changes and bug fixes ( Issue 2 and Issue 3)
+
 #### [0.2.2] ####
 * Converted category window to VBox template/tab
      * Disabled expansion of UI elements
