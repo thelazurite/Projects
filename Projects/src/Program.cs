@@ -24,7 +24,7 @@ namespace Projects
                     Environment.SetEnvironmentVariable("PATH",
                         Environment.Is64BitOperatingSystem
                             ? @"C:\msys64\mingw64\bin"
-                            : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\gtk32\bin")
+                            : @"C:\msys32\mingw32\bin"
                         );
 
                 Application.Init();

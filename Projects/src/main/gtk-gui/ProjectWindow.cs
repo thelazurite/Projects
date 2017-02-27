@@ -240,7 +240,8 @@ namespace Projects.main
             var noteBookContainer = new VBox
             {
                 Name = "NotebookContainer",
-                Spacing = 3
+                Spacing = 3,
+                Margin = 5
             };
 
             _noteBook = new Notebook
@@ -483,8 +484,6 @@ namespace Projects.main
             Add(windowContainer);
 
             SetSizeRequest(800, 600);
-            DefaultWidth = 800;
-            DefaultHeight = 600;
 
             DestroyEvent += ProjectWindow_DestroyEvent;
             DeleteEvent += OnDeleteEvent;
