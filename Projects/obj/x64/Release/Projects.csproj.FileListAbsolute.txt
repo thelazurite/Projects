@@ -1866,7 +1866,6 @@ C:\Users\dylanedd\Documents\GitHub\Projects\Projects\bin\x64\Release\gio-sharp.d
 C:\Users\dylanedd\Documents\GitHub\Projects\Projects\bin\x64\Release\glib-sharp.dll
 C:\Users\dylanedd\Documents\GitHub\Projects\Projects\bin\x64\Release\gtk-sharp.dll
 C:\Users\dylanedd\Documents\GitHub\Projects\Projects\bin\x64\Release\pango-sharp.dll
-C:\Users\dylanedd\Documents\GitHub\Projects\Projects\bin\x64\Release\SQLite.Designer.dll
 C:\Users\dylanedd\Documents\GitHub\Projects\Projects\bin\x64\Release\System.Data.SQLite.dll
 C:\Users\dylanedd\Documents\GitHub\Projects\Projects\bin\x64\Release\System.Data.SQLite.EF6.dll
 C:\Users\dylanedd\Documents\GitHub\Projects\Projects\bin\x64\Release\System.Data.SQLite.Linq.dll
