@@ -234,7 +234,7 @@ namespace Projects.main
                 Editable = false,
                 WrapMode = WrapMode.WordChar,
                 HscrollPolicy = ScrollablePolicy.Natural,
-                Buffer = {Text = "No category selected"}
+                Buffer = {Text = "No category selected\n\rDouble click a category to show its description."}
             };
 
             var noteBookContainer = new VBox
@@ -406,9 +406,9 @@ namespace Projects.main
             toolbarChild.Expand = false;
             toolbarChild.Fill = false;
 
-            categoryExpander.Add(categoryPane);
 
             categoryPane.Add(categoryContainer);
+            categoryPane.Expand = true;
 
             var paneContainerChild = (Paned.PanedChild) categoryPane[categoryContainer];
             paneContainerChild.Resize = true;
@@ -422,6 +422,7 @@ namespace Projects.main
 
             var descriptionContainerChild = (Paned.PanedChild) categoryPane[descriptionHBox];
             descriptionContainerChild.Resize = true;
+            categoryExpander.Add(categoryPane);
 
 
             descriptionHBox.Add(descriptionFixed);

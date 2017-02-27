@@ -20,20 +20,14 @@ namespace Projects
         {
             try
             {
-#if WIN64
-                // if the environment is 64-bit, add the 64-bit gtk binary location to the path env var
-                Environment.SetEnvironmentVariable("PATH",
-                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\gtk64\bin"));
-#elif WIN32
-                Environment.SetEnvironmentVariable("PATH",
-                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\gtk32\bin"));
-#endif
-                // initialize the GTK application
+                if (!PrjHandler.IsUnix)
+                    Environment.SetEnvironmentVariable("PATH",
+                        Environment.Is64BitOperatingSystem
+                            ? @"C:\msys64\mingw64\bin"
+                            : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\gtk32\bin")
+                        );
+
                 Application.Init();
-#if DEBUG
-                Console.WriteLine(
-                    $"{Properties.Settings.Default.LoadOnStartup} \n {Properties.Settings.Default.FileOnStartup}");
-#endif
 
                 // store system's default font in variable
                 var font = SystemFonts.DefaultFont;
@@ -118,12 +112,12 @@ namespace Projects
                     new MainWindow().Show();
                 }
             }
-            // if there isn't a set file tot load on startup
-            else
-            // show the welcome screen
-                new MainWindow().Show();
+            // if there isn't a set file tot load on startup show the welcome screen
+            else new MainWindow().Show();
+
             // run the GTK application
             Application.Run();
+
             PrjHandler.UnlockFile();
 #if DEBUG
             Console.WriteLine("Press any key to close...");

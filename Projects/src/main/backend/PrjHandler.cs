@@ -6,12 +6,23 @@ using Settings = Projects.Properties.Settings;
 
 namespace Projects.main.backend
 {
+    /// <summary>
+    /// Projects File and Operations handling class
+    /// </summary>
     public static class PrjHandler
     {
+        // check the platform version. 
+        public static bool IsUnix
+        {
+            get
+            {
+                var p = (int) Environment.OSVersion.Platform;
+                return (p == 4 || p == 6 || p == 128);
+            }
+        }
+
         public static string PathToFile;
-
         public static string PathToLock;
-
         private static StreamWriter _lock;
 
         public static bool Open(Widget parent)
@@ -80,12 +91,14 @@ namespace Projects.main.backend
             }
         }
 
+        // create the lock file
         public static void LockFile()
         {
-            _lock = new StreamWriter(PathToLock);
-            _lock.Write("[[PROJECTS LOCKFILE]]");
+            using (_lock = new StreamWriter(PathToLock)) 
+                _lock.Write("[[PROJECTS LOCKFILE]]");
         }
 
+        // remove the lock file
         public static void UnlockFile()
         {
             _lock?.Close();
