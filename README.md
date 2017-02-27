@@ -1,4 +1,4 @@
-# Projects 0.2.3 release readme #
+# Projects 0.2.31 release readme #
 
 Projects is a simple Task managment application which is written in C#
 
@@ -26,7 +26,8 @@ Projects is a simple Task managment application which is written in C#
 * Application ignores user Primary window preference
 
 ### Change Log ###
-
+#### [0.2.3X] ###
+* Minor changes and bug fixes ( Issue#2 and Issue#3 )
 #### [0.2.2] ####
 * Converted category window to VBox template/tab
      * Disabled expansion of UI elements
