@@ -82,7 +82,13 @@ namespace Projects.main.backend
                         openFilter.AddMimeType("Projects Lock File");
                         openFilter.AddPattern("*.prj.lk");
                         openDialog.AddFilter(openFilter);
-
+                    }
+                    using (var openFilter = new FileFilter())
+                    {
+                        openFilter.Name = "All files";
+                        openFilter.AddMimeType("All");
+                        openFilter.AddPattern("*.*");
+                        openDialog.AddFilter(openFilter);
                     }
 
                     if (openDialog.Run() == (int) ResponseType.Ok)
@@ -91,7 +97,6 @@ namespace Projects.main.backend
                 }
             }
 
-            Console.WriteLine(file);
             // if no file has been provided / the file does not exist - do not continue
             if (string.IsNullOrEmpty(file) || !File.Exists(file)) return false;
             //Console.WriteLine(Path.GetExtension(file));
