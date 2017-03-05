@@ -40,7 +40,7 @@ namespace Projects.main.backend
         public static bool Open(Widget parent)
         {
             var file = string.Empty;
-            if (IsUnix)
+            if (!IsUnix)
                 using (var openDialog = new OpenFileDialog())
                 {
                     // check file exists

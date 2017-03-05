@@ -15,10 +15,8 @@ namespace Projects.main
         {
             // initialize interface and display to user
             BuildInterface();
-
             //hide the create file item
             _createButton.Visible = false;
-
             _filepathEntry.Text = Properties.Settings.Default.PreviousBrowseFolder;
         }
 
@@ -40,7 +38,6 @@ namespace Projects.main
                     // show the dialog
                     browser.ShowDialog();
                     path = browser.SelectedPath;
-
                 }
             }
             else
