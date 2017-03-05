@@ -20,7 +20,9 @@ namespace Projects.main
             Name = "MainWindow";
             Title = "Welcome to Projects!";
             WindowPosition = WindowPosition.Center;
-            Icon = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\todo.png"));
+            Icon =
+                new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                    !PrjHandler.IsUnix ? @"Content\img\todo.png" : @"Content/img/todo.png"));
             DefaultWidth = 553;
             DefaultHeight = 194;
             Resizable = false;
@@ -36,7 +38,8 @@ namespace Projects.main
             {
                 Name = "backgroundImage",
                 Pixbuf =
-                    new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\splash.png"))
+                    new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                        !PrjHandler.IsUnix ? @"Content\img\splash.png" : @"Content/img/splash.png"))
             };
 
             _containerFixed.Add(_backgroundImage);
@@ -54,7 +57,7 @@ namespace Projects.main
             _containerFixed.Add(_openButton);
             var openChild = (Fixed.FixedChild) _containerFixed[_openButton];
 
-            openChild.X = 500;
+            openChild.X = 480;
             openChild.Y = 80;
 
             _newButton = new Button("_New")
@@ -66,7 +69,7 @@ namespace Projects.main
             _containerFixed.Add(_newButton);
             var newChild = (Fixed.FixedChild) _containerFixed[_newButton];
 
-            newChild.X = 500;
+            newChild.X = 480;
             newChild.Y = 120;
 
             Add(_containerFixed);

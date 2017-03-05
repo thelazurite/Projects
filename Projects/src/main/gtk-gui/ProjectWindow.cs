@@ -47,7 +47,7 @@ namespace Projects.main
             Name = "ProjectWindow";
             Title = "Projects";
             WindowPosition = WindowPosition.Center;
-            Icon = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\todo.png"));
+            Icon = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, !PrjHandler.IsUnix ? @"Content\img\todo.png": @"Content/img/todo.png"));
 
             var uiManager = new UIManager();
 

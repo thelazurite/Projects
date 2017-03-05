@@ -29,7 +29,7 @@ namespace Projects.main
         private void BuildInterface()
         {
             Gui.Initialize(this);
-            Icon = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\todo.png"));
+            Icon = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, !PrjHandler.IsUnix ? @"Content\img\todo.png": @"Content/img/todo.png"));
             Name = "DatePicker";
             Title = "Set date";
             WindowPosition = WindowPosition.Mouse;

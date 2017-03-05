@@ -26,18 +26,18 @@ namespace Projects.main.backend
 
             var save =
                 new IconSet(
-                    new Pixbuf(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\CircledSave.png")));
+                    new Pixbuf(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, !PrjHandler.IsUnix ? @"Content\img\CircledSave.png": @"Content/img/CircledSave.png")));
             factory.Add("CircledSave", save);
             var add =
                 new IconSet(
-                    new Pixbuf(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\CircledPlus.png")));
+                    new Pixbuf(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, !PrjHandler.IsUnix ? @"Content\img\CircledPlus.png": @"Content/img/CircledPlus.png")));
             factory.Add("CircledPlus", add);
             var remove =
                 new IconSet(
-                    new Pixbuf(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\CircledMinus.png")));
+                    new Pixbuf(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, !PrjHandler.IsUnix ? @"Content\img\CircledMinus.png" : @"Content/img/CircledMinus.png")));
             factory.Add("CircledMinus", remove);
             var calendar =
-                new IconSet(new Pixbuf(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Content\img\calendar.png")));
+                new IconSet(new Pixbuf(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, !PrjHandler.IsUnix ? @"Content\img\calendar.png": @"Content/img/calendar.png")));
             factory.Add("Calendar", calendar);
 
             factory.AddDefault();

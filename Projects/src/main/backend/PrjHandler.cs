@@ -27,7 +27,7 @@ namespace Projects.main.backend
         public static string PathToLock;
         private static StreamWriter _lock;
 
-        [DllImport("libgtk-3-0.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("libgtk-3-0.dll", CallingConvention = CallingConvention.StdCall)]
         private static extern bool gtk_file_chooser_set_current_folder(IntPtr raw, IntPtr filename);
         public static bool SetCurrentFolder(string filename, IntPtr handle)
         {
@@ -40,7 +40,7 @@ namespace Projects.main.backend
         public static bool Open(Widget parent)
         {
             var file = string.Empty;
-            if(!IsUnix)
+            if (IsUnix)
                 using (var openDialog = new OpenFileDialog())
                 {
                     // check file exists
@@ -63,22 +63,31 @@ namespace Projects.main.backend
             {
                 using (var openDialog = new FileChooserDialog("Open File", parent as Window, FileChooserAction.Open))
                 {
+                    openDialog.AddButton("Open", ResponseType.Ok);
+                    openDialog.AddButton("Cancel", ResponseType.Close);
+                    SetCurrentFolder(Directory.Exists(Settings.Default.PreviousBrowseFolder)
+                        ? Settings.Default.PreviousBrowseFolder
+                        : Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), openDialog.Handle);
+
                     using (var openFilter = new FileFilter())
                     {
-                        openDialog.AddButton("Open", ResponseType.Ok);
-                        openDialog.AddButton("Cancel", ResponseType.Close);
-                        SetCurrentFolder(Directory.Exists(Settings.Default.PreviousBrowseFolder)
-                        ? Settings.Default.PreviousBrowseFolder
-                        : Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),openDialog.Handle);
-
+                        openFilter.Name = "Projects File";
                         openFilter.AddMimeType("Projects File");
                         openFilter.AddPattern("*.prj");
-
-                        openDialog.Filter = openFilter;
-                        if (openDialog.Run() == (int) ResponseType.Ok)
-                            file = openDialog.File.ParsedName;
-                        openDialog.Destroy();
+                        openDialog.AddFilter(openFilter);
                     }
+                    using (var openFilter = new FileFilter())
+                    {
+                        openFilter.Name = "Projects Lock File";
+                        openFilter.AddMimeType("Projects Lock File");
+                        openFilter.AddPattern("*.prj.lk");
+                        openDialog.AddFilter(openFilter);
+
+                    }
+
+                    if (openDialog.Run() == (int) ResponseType.Ok)
+                        file = openDialog.File.ParsedName;
+                    openDialog.Destroy();
                 }
             }
 

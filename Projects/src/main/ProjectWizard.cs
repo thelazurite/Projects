@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using Gtk;
+using Projects.main.backend;
 
 namespace Projects.main
 {
@@ -23,26 +24,45 @@ namespace Projects.main
 
         private void _selectPathButton_Clicked(object sender, EventArgs e)
         {
-            // folder browser dialog implements dispose(), so using statement can be used here
-            using (var browser = new FolderBrowserDialog())
+            var path = string.Empty;
+
+            if (!PrjHandler.IsUnix)
             {
-                // if the previously browsed folder still exists, set the browser window to it.
-                if (Directory.Exists(Properties.Settings.Default.PreviousBrowseFolder))
-                    browser.SelectedPath = Properties.Settings.Default.PreviousBrowseFolder;
-                // allow users to create new folders from the inteface
-                browser.ShowNewFolderButton = true;
+                // folder browser dialog implements dispose(), so using statement can be used here
+                using (var browser = new FolderBrowserDialog())
+                {
+                    // if the previously browsed folder still exists, set the browser window to it.
+                    if (Directory.Exists(Properties.Settings.Default.PreviousBrowseFolder))
+                        browser.SelectedPath = Properties.Settings.Default.PreviousBrowseFolder;
+                    // allow users to create new folders from the inteface
+                    browser.ShowNewFolderButton = true;
 
-                // show the dialog
-                browser.ShowDialog();
+                    // show the dialog
+                    browser.ShowDialog();
+                    path = browser.SelectedPath;
 
-                // set the filepath to the select path from the file browser
-                _filepathEntry.Text = browser.SelectedPath;
-
-                // set the previously browsed folder to the selected path and save 
-                // property changes.
-                Properties.Settings.Default.PreviousBrowseFolder = _filepathEntry.Text;
-                Properties.Settings.Default.Save();
+                }
             }
+            else
+            {
+                using (var browser = new FileChooserDialog("Select Folder", this, FileChooserAction.SelectFolder))
+                {
+                    browser.AddButton("Open", ResponseType.Ok);
+                    browser.AddButton("Cancel", ResponseType.Close);
+                    PrjHandler.SetCurrentFolder(Directory.Exists(Properties.Settings.Default.PreviousBrowseFolder)
+                        ? Properties.Settings.Default.PreviousBrowseFolder
+                        : Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), browser.Handle);
+                    if (browser.Run() == (int)ResponseType.Ok)
+                        path = browser.File.ParsedName;
+                    browser.Destroy();
+                }
+            }
+            // set the filepath to the select path from the file browser
+            _filepathEntry.Text = path;
+            // set the previously browsed folder to the selected path and save 
+            // property changes.
+            Properties.Settings.Default.PreviousBrowseFolder = path;
+            Properties.Settings.Default.Save();
         }
 
         // validates information input 
