@@ -3,56 +3,71 @@
 namespace Projects.main.backend {
     internal sealed partial class Settings : ApplicationSettingsBase
     {
-        public static Settings Default { get; } = ((Settings)(Synchronized(new Settings())));
+        public static Settings Default { get; } = (Settings)Synchronized(new Settings());
 
-        [UserScopedSetting()]
+        /// <summary>
+        /// should a file be loaded at startup? 
+        /// </summary>
+        [UserScopedSetting]
         [DefaultSettingValue("False")]
         public bool LoadOnStartup {
             get {
-                return ((bool)(this["LoadOnStartup"]));
+                return (bool)this["LoadOnStartup"];
             }
             set {
                 this["LoadOnStartup"] = value;
             }
         }
         
-        [UserScopedSetting()]
+        /// <summary>
+        /// file to be loaded on startup
+        /// </summary>
+        [UserScopedSetting]
         [DefaultSettingValue("")]
         public string FileOnStartup {
             get {
-                return ((string)(this["FileOnStartup"]));
+                return (string)this["FileOnStartup"];
             }
             set {
                 this["FileOnStartup"] = value;
             }
         }
         
-        [UserScopedSetting()]
+        /// <summary>
+        /// Is the application multi window?
+        /// </summary>
+        [UserScopedSetting]
         [DefaultSettingValue("False")]
-        public string[] MultiWindow {
+        public bool MultiWindow {
             get {
-                return ((string[])(this["MultiWindow"]));
+                return (bool)this["MultiWindow"];
             }
             set {
                 this["MultiWindow"] = value;
             }
         }
         
-        [UserScopedSetting()]
+        /// <summary>
+        /// Previously browsed file within the application
+        /// </summary>
+        [UserScopedSetting]
         [DefaultSettingValue("")]
         public string PreviousBrowseFolder {
             get {
-                return ((string)(this["PreviousBrowseFolder"]));
+                return (string)this["PreviousBrowseFolder"];
             }
             set {
                 this["PreviousBrowseFolder"] = value;
             }
         }
         
-        [UserScopedSetting()]
+        /// <summary>
+        /// files which have been opened in the application before
+        /// </summary>
+        [UserScopedSetting]
         public System.Collections.Specialized.StringCollection PreviouslyOpenedFiles {
             get {
-                return ((System.Collections.Specialized.StringCollection)(this["PreviouslyOpenedFiles"]));
+                return (System.Collections.Specialized.StringCollection)this["PreviouslyOpenedFiles"];
             }
             set {
                 this["PreviouslyOpenedFiles"] = value;
