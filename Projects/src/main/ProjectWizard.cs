@@ -17,7 +17,7 @@ namespace Projects.main
             BuildInterface();
             //hide the create file item
             _createButton.Visible = false;
-            _filepathEntry.Text = Properties.Settings.Default.PreviousBrowseFolder;
+            _filepathEntry.Text = backend.Settings.Default.PreviousBrowseFolder;
         }
 
         private void _selectPathButton_Clicked(object sender, EventArgs e)
@@ -30,8 +30,8 @@ namespace Projects.main
                 using (var browser = new FolderBrowserDialog())
                 {
                     // if the previously browsed folder still exists, set the browser window to it.
-                    if (Directory.Exists(Properties.Settings.Default.PreviousBrowseFolder))
-                        browser.SelectedPath = Properties.Settings.Default.PreviousBrowseFolder;
+                    if (Directory.Exists(backend.Settings.Default.PreviousBrowseFolder))
+                        browser.SelectedPath = backend.Settings.Default.PreviousBrowseFolder;
                     // allow users to create new folders from the inteface
                     browser.ShowNewFolderButton = true;
 
@@ -46,8 +46,8 @@ namespace Projects.main
                 {
                     browser.AddButton("Open", ResponseType.Ok);
                     browser.AddButton("Cancel", ResponseType.Close);
-                    PrjHandler.SetCurrentFolder(Directory.Exists(Properties.Settings.Default.PreviousBrowseFolder)
-                        ? Properties.Settings.Default.PreviousBrowseFolder
+                    PrjHandler.SetCurrentFolder(Directory.Exists(backend.Settings.Default.PreviousBrowseFolder)
+                        ? backend.Settings.Default.PreviousBrowseFolder
                         : Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), browser.Handle);
                     if (browser.Run() == (int)ResponseType.Ok)
                         path = browser.File.ParsedName;
@@ -58,8 +58,8 @@ namespace Projects.main
             _filepathEntry.Text = path;
             // set the previously browsed folder to the selected path and save 
             // property changes.
-            Properties.Settings.Default.PreviousBrowseFolder = path;
-            Properties.Settings.Default.Save();
+            backend.Settings.Default.PreviousBrowseFolder = path;
+            backend.Settings.Default.Save();
         }
 
         // validates information input 
@@ -153,9 +153,9 @@ namespace Projects.main
             {
                 // modify the application properties which are used to determine the file to load
                 // at start-up and then save the properties.
-                Properties.Settings.Default.LoadOnStartup = true;
-                Properties.Settings.Default.FileOnStartup = full;
-                Properties.Settings.Default.Save();
+                backend.Settings.Default.LoadOnStartup = true;
+                backend.Settings.Default.FileOnStartup = full;
+                backend.Settings.Default.Save();
 #if DEBUG
                 Console.WriteLine(
                     $"{Properties.Settings.Default.FileOnStartup} \n {Properties.Settings.Default.FileOnStartup}");

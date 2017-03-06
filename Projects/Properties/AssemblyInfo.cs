@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("Projects")]
-[assembly: AssemblyDescription("Keep track of projects you're working on, and your progress.")]
+[assembly: AssemblyDescription("A simple task management program")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Dylan Edwards")]
+[assembly: AssemblyCompany("BettaTek")]
 [assembly: AssemblyProduct("Project")]
-[assembly: AssemblyCopyright("Dylan Eddies ©  2015")]
+[assembly: AssemblyCopyright("Dylan Eddies ©")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -36,6 +36,6 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("0.1.0.3")]
-[assembly: AssemblyFileVersion("0.1.0.3")]
+[assembly: AssemblyVersion("0.2.3.*")]
+[assembly: AssemblyFileVersion("0.2.3")]
 [assembly: NeutralResourcesLanguage("en-GB")]

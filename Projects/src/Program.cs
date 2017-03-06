@@ -53,10 +53,10 @@ namespace Projects
             // store system's default font in variable
             var font = SystemFonts.DefaultFont;
             // set the font to the default font
-            Settings.Default.FontName = font.Name + " " + font.SizeInPoints;
+            Gtk.Settings.Default.FontName = font.Name + " " + font.SizeInPoints;
             // force usage of smooth font
-            Settings.Default.XftAntialias = 1;
-            Settings.Default.XftRgba = "rgb";
+            Gtk.Settings.Default.XftAntialias = 1;
+            Gtk.Settings.Default.XftRgba = "rgb";
 
             // if arguments have been passed to the program
             if (args.Length != 0)
@@ -90,10 +90,10 @@ namespace Projects
         private static void Startup()
         {
             // if the application has been set to load an application on start-up 
-            if (Properties.Settings.Default.LoadOnStartup)
+            if (main.backend.Settings.Default.LoadOnStartup)
             {
                 // store the location of the file in a variable
-                var file = Properties.Settings.Default.FileOnStartup;
+                var file = main.backend.Settings.Default.FileOnStartup;
 
                 // check to see if the file exists, and a lock file does not exist 
                 // load the main application with the startup file
@@ -106,9 +106,9 @@ namespace Projects
                     {
                         // reset the the application settings for loading the file on startup
                         // and save the changes made.
-                        Properties.Settings.Default.LoadOnStartup = false;
-                        Properties.Settings.Default.FileOnStartup = null;
-                        Properties.Settings.Default.Save();
+                        main.backend.Settings.Default.LoadOnStartup = false;
+                        main.backend.Settings.Default.FileOnStartup = null;
+                        main.backend.Settings.Default.Save();
                     }
 
 #if DEBUG

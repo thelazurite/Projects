@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using GLib;
 using Gtk;
-using Settings = Projects.Properties.Settings;
+using Settings = Projects.main.backend.Settings;
 
 namespace Projects.main.backend
 {

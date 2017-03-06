@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Gdk;
 using Gtk;
 using Projects.main.backend;
@@ -18,7 +19,7 @@ namespace Projects.main
             Gui.Initialize(this);
 
             Name = "MainWindow";
-            Title = "Welcome to Projects!";
+            Title = "Projects " + typeof (MainWindow).Assembly.GetName().Version;
             WindowPosition = WindowPosition.Center;
             Icon =
                 new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
