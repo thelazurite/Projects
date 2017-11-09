@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projects", "Projects\Projects.csproj", "{397EB795-BC84-42D5-8E19-91CD9B2054AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projects.Gtk", "Projects\Projects.Gtk.csproj", "{397EB795-BC84-42D5-8E19-91CD9B2054AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C82BDE70-1B21-4E15-8F8C-D15DA27D648B}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,24 +11,47 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		WebEssentials2015-Settings.json = WebEssentials2015-Settings.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projects.Dal", "Projects.Dal\Projects.Dal.csproj", "{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|WIN32 = Debug|WIN32
 		Debug|WIN64 = Debug|WIN64
+		Release|Any CPU = Release|Any CPU
 		Release|WIN32 = Release|WIN32
 		Release|WIN64 = Release|WIN64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Debug|WIN32.ActiveCfg = Debug|x86
 		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Debug|WIN32.Build.0 = Debug|x86
 		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Debug|WIN64.ActiveCfg = Debug|x64
 		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Debug|WIN64.Build.0 = Debug|x64
+		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Release|WIN32.ActiveCfg = Release|x86
 		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Release|WIN32.Build.0 = Release|x86
 		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Release|WIN64.ActiveCfg = Release|x64
 		{397EB795-BC84-42D5-8E19-91CD9B2054AD}.Release|WIN64.Build.0 = Release|x64
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Debug|WIN32.ActiveCfg = Debug|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Debug|WIN32.Build.0 = Debug|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Debug|WIN64.ActiveCfg = Debug|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Debug|WIN64.Build.0 = Debug|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Release|WIN32.ActiveCfg = Release|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Release|WIN32.Build.0 = Release|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Release|WIN64.ActiveCfg = Release|Any CPU
+		{9353B7EB-3F9B-485F-B609-67D8FF4BDC5D}.Release|WIN64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05AF8071-E4C0-4DEC-AEA6-23A08C385C8E}
 	EndGlobalSection
 EndGlobal

@@ -1,10 +1,32 @@
+
+// MIT License
+//
+// Copyright (c) 2017 Dylan Eddies
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 ﻿using System;
-using System.Reflection;
 using Gdk;
 using Gtk;
-using Projects.main.backend;
+using Projects.Gtk.main.backend;
 
-namespace Projects.main
+namespace Projects.Gtk.main
 {
     public partial class MainWindow
     {
@@ -23,7 +45,7 @@ namespace Projects.main
             WindowPosition = WindowPosition.Center;
             Icon =
                 new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                    !PrjHandler.IsUnix ? @"Content\img\todo.png" : @"Content/img/todo.png"));
+                    !ApplicationHelper.IsUnix ? @"Content\img\todo.png" : @"Content/img/todo.png"));
             DefaultWidth = 553;
             DefaultHeight = 194;
             Resizable = false;
@@ -40,7 +62,7 @@ namespace Projects.main
                 Name = "backgroundImage",
                 Pixbuf =
                     new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                        !PrjHandler.IsUnix ? @"Content\img\splash.png" : @"Content/img/splash.png"))
+                        !ApplicationHelper.IsUnix ? @"Content\img\splash.png" : @"Content/img/splash.png"))
             };
 
             _containerFixed.Add(_backgroundImage);
@@ -79,7 +101,7 @@ namespace Projects.main
             DeleteEvent += OnDeleteEvent;
         }
 
-        private static void OnDeleteEvent(object o, DeleteEventArgs args)
+        private static void OnDeleteEvent(Object o, DeleteEventArgs args)
         {
             args.RetVal = true;
             Application.Quit();

@@ -1,16 +1,42 @@
+
+// MIT License
+//
+// Copyright (c) 2017 Dylan Eddies
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 ﻿using System;
 using Gdk;
 using Gtk;
-using Projects.main.backend;
+using Projects.Dal;
+using Projects.Gtk.main.backend;
 using Action = Gtk.Action;
 
-namespace Projects.main
+namespace Projects.Gtk.main
 {
     public sealed partial class ProjectWindow
     {
         private Action _addCategoryAction;
 
         private Action _addTaskItemAction;
+        private Action _modifyTaskItemAction;
+
         private TextView _categoryDescription;
 
         private Label _categoryDescriptionLabel;
@@ -36,9 +62,9 @@ namespace Projects.main
         private TreeViewColumn _taskName;
         private TreeViewColumn _taskPriority;
         private TreeViewColumn _taskStartDate;
-        public Calendar Calendar;
-        public ListStore CategoryStore;
-        public ListStore TaskStore;
+        private Calendar _calendar;
+        private ListStore _categoryStore;
+        private ListStore _taskStore;
 
         private void BuildInterface()
         {
@@ -47,7 +73,7 @@ namespace Projects.main
             Name = "ProjectWindow";
             Title = "Projects";
             WindowPosition = WindowPosition.Center;
-            Icon = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, !PrjHandler.IsUnix ? @"Content\img\todo.png": @"Content/img/todo.png"));
+            Icon = new Pixbuf(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, !ApplicationHelper.IsUnix ? @"Content\img\todo.png": @"Content/img/todo.png"));
 
             var uiManager = new UIManager();
 
@@ -106,9 +132,14 @@ namespace Projects.main
             _addTaskItemAction.Activated += AddTaskItem_Clicked;
             actionGrp.Add(_addTaskItemAction, null);
 
+            _modifyTaskItemAction = new Action("modifyTaskItemAction",
+                "Modify_Task", "Modify task", "CircledPlus");
+            _modifyTaskItemAction.Activated += ModifyTaskItemActionOnActivated;
+            actionGrp.Add(_modifyTaskItemAction, null);
+
             _removeTaskItemAction = new Action("removeTaskItemAction",
                 "Remove Task", "Removes the selected task", "CircledMinus");
-            _removeTaskItemAction.Activated += DeleteTask_Clicked;
+            _removeTaskItemAction.Activated += DeleteTaskItem_Clicked;
             actionGrp.Add(_removeTaskItemAction, null);
 
             uiManager.InsertActionGroup(actionGrp, 0);
@@ -151,15 +182,15 @@ namespace Projects.main
                 Expanded = true
             };
 
-            Calendar = new Calendar
+            _calendar = new Calendar
             {
                 CanFocus = true,
                 Name = "calendar",
                 DisplayOptions = (CalendarDisplayOptions) 35
             };
-            Calendar.MonthChanged += Calendar_MonthChanged;
+            _calendar.MonthChanged += Calendar_MonthChanged;
 
-            calendarExpander.Add(Calendar);
+            calendarExpander.Add(_calendar);
 
             var calendarExpanderLabel = new Label
             {
@@ -259,11 +290,12 @@ namespace Projects.main
                 Name = "TaskTableListContainer",
                 Spacing = 3
             };
-
+            
             uiManager.AddUiFromString(
                 "<ui>" +
                 "<toolbar name='taskToolbar'>" +
                 "<toolitem name='addTaskItemAction' action='addTaskItemAction'/>" +
+                "<toolitem name='modifyTaskItemAction' action='modifyTaskItemAction'/>" +
                 "<toolitem name='removeTaskItemAction' action='removeTaskItemAction'/>" +
                 "</toolbar>" +
                 "</ui>");
@@ -305,7 +337,7 @@ namespace Projects.main
             var categoryNameCell = new CellRendererText();
             _categoryItemName.PackStart(categoryNameCell, false);
             _categoryItemName.SetCellDataFunc(categoryNameCell, RenderCategoryName);
-            categoryNameCell.Edited += categoryItemNameCell_Edited;
+            categoryNameCell.Edited += CategoryItemNameCell_Edited;
 
             _categoryItemToggle = new TreeViewColumn {Title = "Show", Resizable = true};
             var categoryToggleCell = new CellRendererToggle();
@@ -313,8 +345,8 @@ namespace Projects.main
             _categoryItemToggle.SetCellDataFunc(categoryToggleCell, RenderCategoryToggle);
             categoryToggleCell.Toggled += CategoryItem_Toggled;
 
-            CategoryStore = new ListStore(typeof (Category));
-            _categoryTreeView.Model = CategoryStore;
+            _categoryStore = new ListStore(typeof (Category));
+            _categoryTreeView.Model = _categoryStore;
 
             _categoryTreeView.AppendColumn(_categoryItemId);
             _categoryTreeView.AppendColumn(_categoryItemName);
@@ -346,6 +378,7 @@ namespace Projects.main
             _taskName = new TreeViewColumn {Title = "Title", Resizable = true};
             var taskNameCell = new CellRendererText();
             _taskName.PackStart(taskNameCell, false);
+
             _taskName.SetCellDataFunc(taskNameCell, RenderTaskItemName);
 
             _taskCategory = new TreeViewColumn {Title = "Category", Resizable = true};
@@ -368,9 +401,9 @@ namespace Projects.main
             _taskDueDate.PackStart(taskDueCell, true);
             _taskDueDate.SetCellDataFunc(taskDueCell, RenderTaskItemFinish);
 
-            TaskStore = new ListStore(typeof (Task));
+            _taskStore = new ListStore(typeof (TaskItem));
 
-            _mainView.Model = TaskStore;
+            _mainView.Model = _taskStore;
 
             _mainView.AppendColumn(_taskId);
             _mainView.AppendColumn(_taskName);
@@ -491,5 +524,7 @@ namespace Projects.main
 
             _fileActionProgBar.Visible = false;
         }
+
+
     }
 }

@@ -1,10 +1,34 @@
+
+// MIT License
+//
+// Copyright (c) 2017 Dylan Eddies
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
 using Gtk;
-using Projects.main.backend;
+using Projects.Gtk.main.backend;
+using Projects.Dal;
 
-namespace Projects.main
+namespace Projects.Gtk.main
 {
     public partial class ProjectWizard : Window
     {
@@ -20,11 +44,11 @@ namespace Projects.main
             _filepathEntry.Text = backend.Settings.Default.PreviousBrowseFolder;
         }
 
-        private void _selectPathButton_Clicked(object sender, EventArgs e)
+        private void _selectPathButton_Clicked(Object sender, EventArgs e)
         {
-            var path = string.Empty;
+            var path = String.Empty;
 
-            if (!PrjHandler.IsUnix)
+            if (!ApplicationHelper.IsUnix)
             {
                 // folder browser dialog implements dispose(), so using statement can be used here
                 using (var browser = new FolderBrowserDialog())
@@ -46,10 +70,10 @@ namespace Projects.main
                 {
                     browser.AddButton("Open", ResponseType.Ok);
                     browser.AddButton("Cancel", ResponseType.Close);
-                    PrjHandler.SetCurrentFolder(Directory.Exists(backend.Settings.Default.PreviousBrowseFolder)
+                    ApplicationHelper.SetCurrentFolder(Directory.Exists(backend.Settings.Default.PreviousBrowseFolder)
                         ? backend.Settings.Default.PreviousBrowseFolder
                         : Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), browser.Handle);
-                    if (browser.Run() == (int)ResponseType.Ok)
+                    if (browser.Run() == (Int32)ResponseType.Ok)
                         path = browser.File.ParsedName;
                     browser.Destroy();
                 }
@@ -63,13 +87,13 @@ namespace Projects.main
         }
 
         // validates information input 
-        private void _fileEntry_Changed(object sender, EventArgs e) => CheckValues();
-        private void _filepathEntry_Changed(object sender, EventArgs e) => CheckValues();
+        private void _fileEntry_Changed(Object sender, EventArgs e) => CheckValues();
+        private void _filepathEntry_Changed(Object sender, EventArgs e) => CheckValues();
 
         private void CheckValues()
         {
             // if both required values aren't empty - show the create button. 
-            if (!string.IsNullOrWhiteSpace(_filepathEntry.Text) && !string.IsNullOrWhiteSpace(_fileEntry.Text))
+            if (!String.IsNullOrWhiteSpace(_filepathEntry.Text) && !String.IsNullOrWhiteSpace(_fileEntry.Text))
                 _createButton.Visible = true;
             // otherwise, do not
             else
@@ -81,7 +105,7 @@ namespace Projects.main
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _createButton_Clicked(object sender, EventArgs e)
+        private void _createButton_Clicked(Object sender, EventArgs e)
         {
             var path = _filepathEntry.Text;
             var file = _fileEntry.Text + ".prj";
@@ -100,7 +124,7 @@ namespace Projects.main
                     )
                 {
                     // if the user presses Yes
-                    if (overwriteConfirm.Run() == (int) ResponseType.Yes)
+                    if (overwriteConfirm.Run() == (Int32) ResponseType.Yes)
                     {
                         // check if the lockfile exists and delete the file if it does not
                         if (!File.Exists(full + ".lk"))
@@ -158,7 +182,7 @@ namespace Projects.main
                 backend.Settings.Default.Save();
 #if DEBUG
                 Console.WriteLine(
-                    $"{Properties.Settings.Default.FileOnStartup} \n {Properties.Settings.Default.FileOnStartup}");
+                    $"{backend.Settings.Default.FileOnStartup} \n {backend.Settings.Default.FileOnStartup}");
 
 #endif
             }
@@ -169,7 +193,7 @@ namespace Projects.main
             new ProjectWindow(path, file).Show();
         }
 
-        private void _cancelButton_Clicked(object sender, EventArgs e)
+        private void _cancelButton_Clicked(Object sender, EventArgs e)
         {
             // Destroy the current window
             Destroy();
