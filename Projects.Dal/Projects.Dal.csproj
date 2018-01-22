@@ -60,9 +60,11 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="DbItem.cs" />
-    <Compile Include="PriorityItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskItem.cs" />
+    <Compile Include="SQlite\SchemaVersion.cs" />
+    <Compile Include="SQlite\SqliteContext.cs" />
+    <Compile Include="SQlite\SqliteSchema.cs" />
+    <Compile Include="Activity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

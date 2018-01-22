@@ -124,7 +124,7 @@ namespace Projects.Gtk.main
 
             _removeCategoryAction = new Action("removeCategoryAction",
                 "_Remove Category", "Remove the selected category", "CircledMinus");
-            _removeCategoryAction.Activated += deleteCategory_Clicked;
+            _removeCategoryAction.Activated += DeleteCategory_Clicked;
             actionGrp.Add(_removeCategoryAction, null);
 
             _addTaskItemAction = new Action("addTaskItemAction",
@@ -321,12 +321,8 @@ namespace Projects.Gtk.main
             {
                 Title = "ID",
                 Resizable = true,
-#if !DEBUG
                 Visible = false
-#endif
-#if DEBUG
-                Visible = true
-#endif
+
             };
 
             var categoryIdCell = new CellRendererText();
@@ -401,7 +397,7 @@ namespace Projects.Gtk.main
             _taskDueDate.PackStart(taskDueCell, true);
             _taskDueDate.SetCellDataFunc(taskDueCell, RenderTaskItemFinish);
 
-            _taskStore = new ListStore(typeof (TaskItem));
+            _taskStore = new ListStore(typeof (Activity));
 
             _mainView.Model = _taskStore;
 

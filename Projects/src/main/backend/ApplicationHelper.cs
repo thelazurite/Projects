@@ -21,7 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-﻿using System;
+ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -53,7 +53,7 @@ namespace Projects.Gtk.main.backend
         private static extern Boolean gtk_file_chooser_set_current_folder(IntPtr raw, IntPtr filename);
         public static Boolean SetCurrentFolder(String filename, IntPtr handle)
         {
-            IntPtr num = Marshaller.StringToFilenamePtr(filename);
+            var num = Marshaller.StringToFilenamePtr(filename);
             var flag = gtk_file_chooser_set_current_folder(handle, num);
             Marshaller.Free(num);
             return flag;

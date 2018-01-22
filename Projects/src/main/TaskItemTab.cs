@@ -27,7 +27,6 @@ using GLib;
 using Gtk;
 using Projects.Dal;
 using DateTime = System.DateTime;
-using Object = System.Object;
 using Window = Gdk.Window;
 
 namespace Projects.Gtk.main
@@ -50,13 +49,11 @@ namespace Projects.Gtk.main
             
             _parent = parent;
             ParentWindow = _parent as Window;
-            // set the category list to the currently available categories
             _categories = categories;
-            // builds the interface and displays it
             BuildInterface();
         }
 
-        public void LoadTodoItem(TaskItem task)
+        public void LoadTodoItem(Activity task)
         {
             if (task == null) return;
 
@@ -68,89 +65,59 @@ namespace Projects.Gtk.main
                 return false;
             });
 
-            
-
-
             _nameEntry.Text = task.Name;
-
             _descView.Buffer.Text = task.Description;
             _startEntry.Text = task.StartDate.ToString(CultureInfo.CurrentCulture);
             _endEntry.Text = task.DueDate.ToString(CultureInfo.CurrentCulture);
         }
 
-        public event Action<Object, EventArgs> AddTaskItemHandler;
+        public event Action<object, EventArgs> AddTaskItemHandler, ActivityNameChangeHandler;
 
-        private void CancelButton_Clicked(Object sender, EventArgs e)
+        private void CancelButton_Clicked(object sender, EventArgs e)
         {
-            // destroy/close the window
             Destroy();
         }
 
         /// <summary>
         ///     Logic executed once the add button is pressed
         /// </summary>
-        private void AddButton_Clicked(Object sender, EventArgs e)
+        private void AddButton_Clicked(object sender, EventArgs e)
         {
-            // validate the data being provided 
-
-            // if there has been no entry for a to-do item's name provided
             if (String.IsNullOrWhiteSpace(_nameEntry.Text))
             {
-                //display an error message to the user
-                using (var md = new MessageDialog(_parent as global::Gtk.Window, DialogFlags.Modal, MessageType.Error,
-                    ButtonsType.Close, "No name entered!"))
-                {
-                    // display the message box
-                    md.Run();
-                    // wait for user input before destroying/closing the message box.
-                    md.Destroy();
-                }
-                // stop the function
+                const String message = "No name entered!";
+                DialogHelper.DisplayError(message, _parent as global::Gtk.Window);
                 return;
             }
 
-            // logic run after data provided has been validated
-
-            // get active item from list
-            TreeIter iter;
-            _categoryBox.GetActiveIter(out iter);
-            var item = _categoryBox.Model.GetValue(iter, 0);
-
-            //convert object to that of the category class
-            var category = item as Category;
-
-            // get the currently seleted priority item
+            _categoryBox.GetActiveIter(out var iter);
+            
+            var category = _categoryBox.Model.GetValue(iter, 0) as Category;
             var priority = _priorityBox.Active;
 
-            // createes the to-do Item
-            var todo = new TaskItem
-                (
-                // create a new guid and convert it to a string
+            var todo = new Activity
+            (
                 Guid.NewGuid().ToString(),
-                // get the text stored in the name entry field
                 _nameEntry.Text,
                 _descView.Buffer.Text,
-                // if the currently selected category id isn't null, select it - otherwise use an empty GUID value
                 category != null ? category.Id : Guid.Empty.ToString(),
-                // if the value provided is out of range, then select the last available item (No Priority)
                 _values[priority == -1 ? 3 : priority],
-                // start and end dates
                 _start, _end
-                );
+            );
+
             AddTodo(todo, EventArgs.Empty);
 
-            //Console.WriteLine(_categoryBox.Active);
             Destroy();
         }
 
-        private void StartPicker_Clicked(Object sender, EventArgs e)
+        private void StartPicker_Clicked(object sender, EventArgs e)
         {
             _window = new DatePicker();
             _window.AcceptButton.Clicked += StartPicker_Selected;
             _window.Show();
         }
 
-        private void StartPicker_Selected(Object sender, EventArgs e)
+        private void StartPicker_Selected(object sender, EventArgs e)
         {
             var sent = _window.Calendar.Date;
             _start = new DateTime(sent.Year, sent.Month, sent.Day, _window.HoursSpin.ValueAsInt,
@@ -160,14 +127,14 @@ namespace Projects.Gtk.main
             _window.Destroy();
         }
 
-        private void EndPicker_Clicked(Object sender, EventArgs e)
+        private void EndPicker_Clicked(object sender, EventArgs e)
         {
             _window = new DatePicker();
             _window.AcceptButton.Clicked += EndPicker_Selected;
             _window.Show();
         }
 
-        private void EndPicker_Selected(Object sender, EventArgs e)
+        private void EndPicker_Selected(object sender, EventArgs e)
         {
             var sent = _window.Calendar.Date;
             _end = new DateTime(sent.Year, sent.Month, sent.Day, _window.HoursSpin.ValueAsInt,
@@ -177,19 +144,20 @@ namespace Projects.Gtk.main
             _window.Destroy();
         }
 
-        private void AddTodo(Object sender, EventArgs e) => AddTaskItemHandler?.Invoke(sender, e);
+        private void AddTodo(object sender, EventArgs e) => AddTaskItemHandler?.Invoke(sender, e);
+        private void ReportNameChange(object sender, EventArgs e) => ActivityNameChangeHandler?.Invoke(sender, e);
 
         private static void Func(ICellLayout cellLayout, CellRenderer cell, ITreeModel model, TreeIter iter)
         {
             var item = (Category) model.GetValue(iter, 0);
-            var value = cell as CellRendererText;
-            if (value != null) value.Text = item.CategoryName;
+            if (cell is CellRendererText value) 
+                value.Text = item.CategoryName;
         }
 
+        
         private void NameTextChanged()
         {
-            //var value = _nameEntry.Text; 
-            //Todo: Change the tab title value... somehow
+            ReportNameChange(_nameEntry.Text, EventArgs.Empty);
         }
     }
 }

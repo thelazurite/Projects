@@ -41,7 +41,7 @@ namespace Projects.Dal
         /// <summary>
         ///     Handles database item addition logic
         /// </summary>
-        public virtual void AddToDb()
+        public virtual void Add()
         {
             IsAdding = true;
         }
@@ -49,7 +49,7 @@ namespace Projects.Dal
         /// <summary>
         ///     Handles database item deletion logic
         /// </summary>
-        public virtual void DeleteFromDb()
+        public virtual void Delete()
         {
             IsDeleting = true;
         }
@@ -57,7 +57,7 @@ namespace Projects.Dal
         /// <summary>
         ///     Handles database item modification
         /// </summary>
-        internal void ModifyInDb()
+        internal void Modify()
         {
             IsModifying = true;
         }

@@ -41,21 +41,21 @@ namespace Projects.Dal
             CategoryActive = active;
         }
 
-        public override void AddToDb()
+        public override void Add()
         {
             SqlAdd = new SQLiteCommand("insert into tblCategories(categoryId, category, description)" +
                                        "values(@id, @categoryName, @categoryDescription)");
             SqlAdd.Parameters.Add(new SQLiteParameter("@id", Id));
             SqlAdd.Parameters.Add(new SQLiteParameter("@categoryName", CategoryName));
             SqlAdd.Parameters.Add(new SQLiteParameter("@categoryDescription", CategoryDescription));
-            base.AddToDb();
+            base.Add();
         }
 
-        public override void DeleteFromDb()
+        public override void Delete()
         {
             SqlDelete = new SQLiteCommand("delete from tblCategories where categoryId = @id");
             SqlDelete.Parameters.Add(new SQLiteParameter("@id", Id));
-            base.DeleteFromDb();
+            base.Delete();
         }
     }
 }

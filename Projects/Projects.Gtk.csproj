@@ -216,6 +216,7 @@
     <Compile Include="src\main\backend\TreeViewSelection.cs" />
     <Compile Include="src\main\CategoryTab.cs" />
     <Compile Include="src\main\DatePicker.cs" />
+    <Compile Include="src\main\DialogHelper.cs" />
     <Compile Include="src\main\gtk-gui\CategoryTab.cs" />
     <Compile Include="src\main\gtk-gui\DatePicker.cs" />
     <Compile Include="src\main\gtk-gui\MainWindow.cs" />

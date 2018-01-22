@@ -1,4 +1,4 @@
-
+﻿
 // MIT License
 //
 // Copyright (c) 2017 Dylan Eddies
@@ -21,7 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Globalization;
@@ -31,9 +31,9 @@ using GLib;
 using Gtk;
 using Projects.Gtk.main.backend;
 using Projects.Dal;
-using Application = Gtk.Application;
+ using Projects.Dal.SQlite;
+ using Application = Gtk.Application;
 using DateTime = System.DateTime;
-using Object = System.Object;
 
 namespace Projects.Gtk.main
 {
@@ -47,7 +47,7 @@ namespace Projects.Gtk.main
         /// </summary>
         /// <param name="pathToFile">Where the file will be stored.</param>
         /// <param name="fileName">The file name</param>
-        public ProjectWindow(String pathToFile, String fileName) : base(WindowType.Toplevel)
+        public ProjectWindow(string pathToFile, string fileName) : base(WindowType.Toplevel)
         {
             BuildInterface();
 
@@ -60,44 +60,8 @@ namespace Projects.Gtk.main
 
             if (!File.Exists(ApplicationHelper.PathToFile))
             {
-                SQLiteConnection.CreateFile(ApplicationHelper.PathToFile);
-                _dbConnection = new SQLiteConnection($"Data Source={ApplicationHelper.PathToFile};Version=3;");
-                _dbConnection.Open();
-
-                // creates the category table
-                var execute =
-                    new SQLiteCommand(
-                        "create table tblCategories (categoryId varchar(36), category varchar(150), description varchar(1024))",
-                        _dbConnection);
-                execute.ExecuteNonQuery();
-
-                // creates a unique identifier on the categoryId varchar(36) column (used to store a GUID)
-                execute = new SQLiteCommand("create unique index catUniqueId on tblCategories (categoryId)",
-                    _dbConnection);
-
-                execute.ExecuteNonQuery();
-
-                // creats the to-do item table
-                execute = new SQLiteCommand
-                    ("create table tblTodoItems(todoId varchar(36), todo varchar(150), description varchar(1024)," +
-                     " itemPriority varchar(50), category varchar(50), startDate datetime, dueDate datetime)",
-                        _dbConnection);
-
-                execute.ExecuteNonQuery();
-
-                // creates unique identifier on the todoId varchar(36) column
-                execute = new SQLiteCommand("create unique index todoUniqueId on tblTodoItems (todoId)", _dbConnection);
-
-                execute.ExecuteNonQuery();
-
-                // creates the default category
-                execute = new SQLiteCommand("insert into tblCategories(categoryId, category, description)" +
-                                            "values('00000000-0000-0000-0000-000000000000','None','For list items with no category')",
-                    _dbConnection);
-                execute.ExecuteNonQuery();
-
-                _dbConnection.Close();
-
+                var dataContext = new SqliteContext(ApplicationHelper.PathToFile);
+                dataContext.CreateSchema();
                 RefreshData();
             }
             else
@@ -109,7 +73,7 @@ namespace Projects.Gtk.main
             Title = "Projects - " + ApplicationHelper.PathToFile;
         }
 
-        public ProjectWindow(String fullPath) : base(WindowType.Toplevel)
+        public ProjectWindow(string fullPath) : base(WindowType.Toplevel)
         {
             ApplicationHelper.PathToFile = fullPath;
             ApplicationHelper.PathToLock = ApplicationHelper.PathToFile + ".lk";
@@ -124,7 +88,7 @@ namespace Projects.Gtk.main
             _sqlItems = new List<DbItem>();
         }
 
-        private Boolean ChangesMade => _sqlItems?.Count > 0;
+        private bool ChangesMade => _sqlItems?.Count > 0;
 
         private void UpdateCalendarMarks()
         {
@@ -133,10 +97,10 @@ namespace Projects.Gtk.main
 
             _taskStore.Foreach(delegate(ITreeModel taskModel, TreePath path, TreeIter taskIter)
             {
-                var taskItem = (TaskItem) taskModel.GetValue(taskIter, 0);
+                var taskItem = (Activity) taskModel.GetValue(taskIter, 0);
 
                 if ((_calendar.Month == taskItem.DueDate.Month - 1) && (_calendar.Year == taskItem.DueDate.Year))
-                    _calendar.MarkDay((UInt32) taskItem.DueDate.Day);
+                    _calendar.MarkDay((uint) taskItem.DueDate.Day);
 
                 return false;
             });
@@ -144,22 +108,16 @@ namespace Projects.Gtk.main
 
         private void RefreshData()
         {
-            // clear data before refreshing
             _categoryStore.Clear();
             _taskStore.Clear();
 
-            // open database connection
             _dbConnection.Open();
+            const string selectCategories = "select * from tblCategories";
+            const string selectRecords = "select * from tblTodoItems";
 
-            // select all information from both tables
-            const String selectCategories = "select * from tblCategories";
-            const String selectRecords = "select * from tblTodoItems";
-
-            // set query to selct categories from the data context
             var execute = new SQLiteCommand(selectCategories, _dbConnection);
             var reader = execute.ExecuteReader();
 
-            // while reading through each item, check for nulls and append to the list store
             while (reader.Read())
             {
                 var category = new Category(reader["categoryId"]?.ToString() ?? "null",
@@ -169,22 +127,18 @@ namespace Projects.Gtk.main
                 _categoryStore.AppendValues(category);
             }
 
-            // next get the to-do items.
             execute = new SQLiteCommand(selectRecords, _dbConnection);
             reader = execute.ExecuteReader();
 
             while (reader.Read())
             {
-                // display date information in the current localisation 
-                DateTime start;
                 DateTime.TryParse(reader["startDate"].ToString(), CultureInfo.CurrentCulture,
-                    DateTimeStyles.AssumeLocal, out start);
+                    DateTimeStyles.AssumeUniversal, out var start);
 
-                DateTime end;
                 DateTime.TryParse(reader["dueDate"].ToString(), CultureInfo.CurrentCulture,
-                    DateTimeStyles.AssumeLocal, out end);
+                    DateTimeStyles.AssumeUniversal, out var end);
 
-                var item = new TaskItem(reader["todoId"]?.ToString() ?? "null",
+                var item = new Activity(reader["todoId"]?.ToString() ?? "null",
                     DbItem.RestoreSpecialChars(reader["todo"]?.ToString()) ?? "null",
                     DbItem.RestoreSpecialChars(reader["description"]?.ToString()) ?? "null",
                     reader["category"]?.ToString() ?? "null", reader["itemPriority"]?.ToString() ?? "null", start, end);
@@ -192,14 +146,11 @@ namespace Projects.Gtk.main
                 _taskStore.AppendValues(item);
             }
 
-            // close the connection
             _dbConnection.Close();
-
-            // Update calendar marks
             UpdateCalendarMarks();
         }
 
-        private void OpenActionOnActivated(Object sender, EventArgs eventArgs)
+        private void OpenActionOnActivated(object sender, EventArgs eventArgs)
         {
             if (ChangesMade)
                 switch (ConfirmClose())
@@ -221,7 +172,7 @@ namespace Projects.Gtk.main
         }
 
 
-        private void FileNewMenuItem_OnActivated(Object sender, EventArgs eventArgs)
+        private void FileNewMenuItem_OnActivated(object sender, EventArgs eventArgs)
         {
             _dbConnection.Close();
             _dbConnection = new SQLiteConnection();
@@ -230,7 +181,7 @@ namespace Projects.Gtk.main
             new ProjectWizard().Show();
         }
 
-        private void AddCategory_Clicked(Object sender, EventArgs e)
+        private void AddCategory_Clicked(object sender, EventArgs e)
         {
             var window = new CategoryTab(this);
             window.Destroyed += CategoryWindow_Destroyed;
@@ -242,22 +193,21 @@ namespace Projects.Gtk.main
             windowNoteChild.TabFill = false;
         }
 
-        private void Window_AddCategoryHandler(Object sender, EventArgs e)
+        private void Window_AddCategoryHandler(object sender, EventArgs e)
         {
-            var category = sender as Category;
-            if (category == null) return;
-            category.AddToDb();
+            if (!(sender is Category category)) return;
+            category.Add();
             _categoryStore.AppendValues(category);
             _sqlItems.Add(category);
         }
 
-        private void CategoryWindow_Destroyed(Object sender, EventArgs e)
+        private void CategoryWindow_Destroyed(object sender, EventArgs e)
         {
             _addCategoryAction.UnblockActivate();
             _removeCategoryAction.UnblockActivate();
         }
 
-        private void AddTaskItem_Clicked(Object sender, EventArgs args)
+        private void AddTaskItem_Clicked(object sender, EventArgs args)
         {
             var taskTab = new TaskItemTab(_categoryStore, this);
             taskTab.Destroyed += TaskItemWindow_Destroyed;
@@ -274,23 +224,22 @@ namespace Projects.Gtk.main
         /// </summary>
         /// <param name="sender">The task item object</param>
         /// <param name="e">empty.</param>
-        private void Window_AddTaskItemHandler(Object sender, EventArgs e)
+        private void Window_AddTaskItemHandler(object sender, EventArgs e)
         {
-            var task = sender as TaskItem;
-            if (task == null) return;
-            task.AddToDb();
+            if (!(sender is Activity task)) return;
+            task.Add();
             _taskStore.AppendValues(task);
             _sqlItems.Add(task);
             UpdateCalendarMarks();
         }
 
-        private void TaskItemWindow_Destroyed(Object sender, EventArgs e)
+        private void TaskItemWindow_Destroyed(object sender, EventArgs e)
         {
             _addTaskItemAction.UnblockActivate();
             _removeTaskItemAction.UnblockActivate();
         }
 
-        private void SaveItem_OnActivated(Object sender, EventArgs eventArgs) => SaveFile();
+        private void SaveItem_OnActivated(object sender, EventArgs eventArgs) => SaveFile();
 
         private void SaveFile()
         {
@@ -299,7 +248,7 @@ namespace Projects.Gtk.main
             var current = 0;
             _dbConnection.Open();
 
-            foreach (DbItem item in _sqlItems.ToList())
+            foreach (var item in _sqlItems.ToList())
             {
                 _fileActionProgBar.Window.ProcessUpdates(true);
 
@@ -325,7 +274,7 @@ namespace Projects.Gtk.main
                 }
 
                 _sqlItems.Remove(item);
-                _fileActionProgBar.Fraction = (Single) current/amt;
+                _fileActionProgBar.Fraction = (float) current/amt;
             }
 
             _fileActionProgBar.Fraction = 1;
@@ -336,21 +285,22 @@ namespace Projects.Gtk.main
             RefreshData();
         }
 
-        public void categoryItemToggleCell_Toggled(Object sender, ToggledArgs args)
+        public void categoryItemToggleCell_Toggled(object sender, ToggledArgs args)
         {
-            TreeIter iter;
-            if (!_categoryStore.GetIter(out iter, new TreePath(args.Path))) return;
-            var toggle = (Boolean) _categoryStore.GetValue(iter, 3);
+            if (!_categoryStore.GetIter(out var iter, new TreePath(args.Path))) return;
+            var toggle = (bool) _categoryStore.GetValue(iter, 3);
             _categoryStore.SetValue(iter, 3, !toggle);
         }
 
-        private Boolean CheckList(DbItem item)
+        /// <summary>
+        /// Check whether an item previously marked for adding or updating is being deleted. If so, remove the previous statement
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        private bool CheckStatus(DbItem item)
         {
             var cnt = true;
 
-            // if the item wanting to be added into the pending list is already in the list:
-            //  check to see if they are going to be added and deleted or modified and deleted :
-            //      if so remove then from the pending list.
             foreach (
                 var ite in
                     _sqlItems.ToList().Where(i => i.Id == item.Id)
@@ -360,24 +310,19 @@ namespace Projects.Gtk.main
                 cnt = false;
             }
 
-            // return the result
             return cnt;
         }
 
-        public void deleteCategory_Clicked(Object sender, EventArgs e)
+        private void DeleteCategory_Clicked(object sender, EventArgs e)
         {
-            ITreeModel model;
-            TreeIter iter;
             var selection = _categoryTreeView.Selection;
 
-            if (!selection.GetSelected(out model, out iter)) return;
+            if (!selection.GetSelected(out var model, out var iter)) return;
 
             var item = model.GetValue(iter, 0);
 
-            var category = item as Category;
-
             // ensure category isn't null before continuing.
-            if (category == null) return;
+            if (!(item is Category category)) return;
             if (new Guid(category.Id) == Guid.Empty) return;
 
             var del = 0;
@@ -385,7 +330,7 @@ namespace Projects.Gtk.main
             // check through TaskItem list if there are any tasks which fall under the category
             _taskStore.Foreach(delegate(ITreeModel taskModel, TreePath path, TreeIter taskIter)
             {
-                var taskItem = (TaskItem) taskModel.GetValue(taskIter, 0);
+                var taskItem = (Activity) taskModel.GetValue(taskIter, 0);
 #if DEBUG
                 Console.WriteLine(taskItem.Category);
                 Console.WriteLine(category.Id);
@@ -409,20 +354,20 @@ namespace Projects.Gtk.main
                 return;
             }
 
-            category.DeleteFromDb();
+            category.Delete();
 
-            if (CheckList(category))
+            if (CheckStatus(category))
                 _sqlItems.Add(category);
 
             _categoryStore.Remove(ref iter);
         }
 
-        private void ModifyTaskItemActionOnActivated(Object sender, EventArgs eventArgs)
+        private void ModifyTaskItemActionOnActivated(object sender, EventArgs eventArgs)
         {
             var taskTab = new TaskItemTab(_categoryStore, this);
             taskTab.Destroyed += TaskItemWindow_Destroyed;
 
-            TaskItem record = RetrieveTreeViewSelection<TaskItem>(_mainView.Selection).Result;
+            var record = RetrieveTreeViewSelection<Activity>(_mainView.Selection).Result;
 
             if (record == null) return;
 
@@ -438,10 +383,7 @@ namespace Projects.Gtk.main
 
         private static TreeViewSelection<T> RetrieveTreeViewSelection<T>(TreeSelection selection) where T : class
         {
-            ITreeModel model;
-            TreeIter iter;
-
-            if (!selection.GetSelected(out model, out iter)) return TreeViewSelection<T>.Empty();
+            if (!selection.GetSelected(out var model, out var iter)) return TreeViewSelection<T>.Empty();
 
             var result = model.GetValue(iter, 0) as T;
             var item = new TreeViewSelection<T>
@@ -453,24 +395,24 @@ namespace Projects.Gtk.main
             return item;
         }
 
-        private void DeleteTaskItem_Clicked(Object sender, EventArgs eventArgs)
+        private void DeleteTaskItem_Clicked(object sender, EventArgs eventArgs)
         {
-            var value = RetrieveTreeViewSelection<TaskItem>(_mainView.Selection);
-            TaskItem record = value.Result;
-            TreeIter iter = value.Iter;
+            var value = RetrieveTreeViewSelection<Activity>(_mainView.Selection);
+            var record = value.Result;
+            var iter = value.Iter;
 
             if (value.Result == null) return;
 
-            record.DeleteFromDb();
+            record.Delete();
 
-            if (CheckList(record))
+            if (CheckStatus(record))
                 _sqlItems.Add(record);
 
             _taskStore.Remove(ref iter);
             UpdateCalendarMarks();
         }
 
-        private void fileExitMenuItem_Clicked(Object sender, EventArgs args)
+        private void fileExitMenuItem_Clicked(object sender, EventArgs args)
         {
             if (ChangesMade)
                 switch (ConfirmClose())
@@ -494,17 +436,15 @@ namespace Projects.Gtk.main
             }
         }
 
-        private void CategoryItemNameCell_Edited(Object sender, EditedArgs args)
+        private void CategoryItemNameCell_Edited(object sender, EditedArgs args)
         {
-            TreeIter iter;
-            _categoryStore.GetIter(out iter, new TreePath(args.Path));
+            _categoryStore.GetIter(out var iter, new TreePath(args.Path));
             _categoryStore.SetValue(iter, 1, args.NewText);
         }
 
-        private void CategoryItem_Toggled(Object sender, ToggledArgs args)
+        private void CategoryItem_Toggled(object sender, ToggledArgs args)
         {
-            TreeIter iter;
-            _categoryStore.GetIter(out iter, new TreePath(args.Path));
+            _categoryStore.GetIter(out var iter, new TreePath(args.Path));
             Console.WriteLine(iter);
 
             var item = (Category) _categoryStore.GetValue(iter, 0);
@@ -515,46 +455,40 @@ namespace Projects.Gtk.main
             TreeIter iter)
         {
             var item = (Category) model.GetValue(iter, 0);
-            var value = cell as CellRendererText;
-            if (value != null) value.Text = item.Id;
+            if (cell is CellRendererText value) value.Text = item.Id;
         }
 
         private static void RenderCategoryName(TreeViewColumn treeColumn, CellRenderer cell, ITreeModel model,
             TreeIter iter)
         {
             var item = (Category) model.GetValue(iter, 0);
-            var value = cell as CellRendererText;
-            if (value != null) value.Text = item.CategoryName;
+            if (cell is CellRendererText value) value.Text = item.CategoryName;
         }
 
         private static void RenderCategoryToggle(TreeViewColumn treeColumn, CellRenderer cell, ITreeModel model,
             TreeIter iter)
         {
             var item = (Category) model.GetValue(iter, 0);
-            var value = cell as CellRendererToggle;
-            if (value != null) value.Active = item.CategoryActive;
+            if (cell is CellRendererToggle value) value.Active = item.CategoryActive;
         }
 
         private static void RenderTaskItemId(TreeViewColumn column, CellRenderer cell, ITreeModel model, TreeIter iter)
         {
-            var item = (TaskItem) model.GetValue(iter, 0);
-            var value = cell as CellRendererText;
-            if (value != null) value.Text = item.Id;
+            var item = (Activity) model.GetValue(iter, 0);
+            if (cell is CellRendererText value) value.Text = item.Id;
         }
 
         private static void RenderTaskItemName(TreeViewColumn column, CellRenderer cell, ITreeModel model, TreeIter iter)
         {
-            var item = (TaskItem) model.GetValue(iter, 0);
-            var value = cell as CellRendererText;
-            if (value != null) value.Text = item.Name;
+            var item = (Activity) model.GetValue(iter, 0);
+            if (cell is CellRendererText value) value.Text = item.Name;
         }
 
         private void RenderTaskItemCategory(TreeViewColumn column, CellRenderer cell, ITreeModel model, TreeIter iter)
         {
-            var item = (TaskItem) model.GetValue(iter, 0);
-            var value = cell as CellRendererText;
+            var item = (Activity) model.GetValue(iter, 0);
 
-            if (value == null) return;
+            if (!(cell is CellRendererText value)) return;
             if (new Guid(item.Category) == Guid.Empty)
                 value.Text = "None";
             else
@@ -574,31 +508,28 @@ namespace Projects.Gtk.main
         private static void RenderTaskItemPriority(TreeViewColumn column, CellRenderer cell, ITreeModel model,
             TreeIter iter)
         {
-            var item = (TaskItem) model.GetValue(iter, 0);
-            var value = cell as CellRendererText;
-            if (value != null) value.Text = item.Priority;
+            var item = (Activity) model.GetValue(iter, 0);
+            if (cell is CellRendererText value) value.Text = item.Priority;
         }
 
         private static void RenderTaskItemStart(TreeViewColumn column, CellRenderer cell, ITreeModel model,
             TreeIter iter)
         {
-            var item = (TaskItem) model.GetValue(iter, 0);
-            var value = cell as CellRendererText;
-            if (value == null) return;
+            var item = (Activity) model.GetValue(iter, 0);
+            if (!(cell is CellRendererText value)) return;
             value.Text = item.StartDate.Date != DateTime.MinValue.Date ? CheckDate(item.StartDate) : "Not set";
         }
 
         private static void RenderTaskItemFinish(TreeViewColumn column, CellRenderer cell, ITreeModel model,
             TreeIter iter)
         {
-            var item = (TaskItem) model.GetValue(iter, 0);
-            var value = cell as CellRendererText;
-            if (value == null) return;
+            var item = (Activity) model.GetValue(iter, 0);
+            if (!(cell is CellRendererText value)) return;
 
             if (item.DueDate.Date != DateTime.MinValue.Date)
             {
-                DateTime render = item.DueDate;
-                DateTime current = DateTime.Now;
+                var render = item.DueDate;
+                var current = DateTime.Now;
 
                 if (render < current)
                     value.Text = "Overdue since " + CheckDate(render);
@@ -609,9 +540,9 @@ namespace Projects.Gtk.main
                 value.Text = "Not set";
         }
 
-        private static String CheckDate(DateTime date)
+        private static string CheckDate(DateTime date)
         {
-            String output;
+            string output;
             if (date.Date == DateTime.Now.Date)
                 output = $"Today at {date:hh:mm:ss tt}";
             else if (date.Date == DateTime.Today.AddDays(-1))
@@ -621,7 +552,7 @@ namespace Projects.Gtk.main
             return output;
         }
 
-        private static void ProjectWindow_DestroyEvent(Object o, DestroyEventArgs args)
+        private static void ProjectWindow_DestroyEvent(object o, DestroyEventArgs args)
         {
             ApplicationHelper.UnlockFile();
             args.RetVal = true;
@@ -629,7 +560,7 @@ namespace Projects.Gtk.main
 
         [ConnectBefore]
         // check if user wants to save before closing window
-        private void OnDeleteEvent(Object sender, DeleteEventArgs args)
+        private void OnDeleteEvent(object sender, DeleteEventArgs args)
         {
             if (ChangesMade)
             {
@@ -663,7 +594,7 @@ namespace Projects.Gtk.main
         ///     Method used to confirm if user wants to close the Project Window
         /// </summary>
         /// <returns></returns>
-        private Int32 ConfirmClose()
+        private int ConfirmClose()
         {
             using (
                 var closeConfirm = new MessageDialog(this, DialogFlags.DestroyWithParent, MessageType.Question,
@@ -674,13 +605,13 @@ namespace Projects.Gtk.main
                 // if the user presses Yes
                 closeConfirm.AddButton("_Cancel", ResponseType.Cancel);
 
-                Int32 pars;
+                int pars;
                 switch (closeConfirm.Run())
                 {
-                    case (Int32) ResponseType.Yes:
+                    case (int) ResponseType.Yes:
                         pars = 1;
                         break;
-                    case (Int32) ResponseType.No:
+                    case (int) ResponseType.No:
                         pars = 2;
                         break;
                     default:
@@ -692,16 +623,16 @@ namespace Projects.Gtk.main
             }
         }
 
-        private void Calendar_MonthChanged(Object sender, EventArgs e) => UpdateCalendarMarks();
+        private void Calendar_MonthChanged(object sender, EventArgs e) => UpdateCalendarMarks();
 
-        private void CategoryTreeView_RowActivated(Object o, RowActivatedArgs args)
+        private void CategoryTreeView_RowActivated(object o, RowActivatedArgs args)
         {
 
             var retrieval = RetrieveTreeViewSelection<Category>(_categoryTreeView.Selection);
-            Category category = retrieval.Result;
+            var category = retrieval.Result;
 
             if (category != null)
-                _categoryDescription.Buffer.Text = String.IsNullOrWhiteSpace(category.CategoryDescription)
+                _categoryDescription.Buffer.Text = string.IsNullOrWhiteSpace(category.CategoryDescription)
                     ? $"No description for {category.CategoryName}"
                     : category.CategoryDescription;
         }

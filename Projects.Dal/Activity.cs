@@ -26,16 +26,17 @@ using System.Data.SQLite;
 
 namespace Projects.Dal
 {
-    public class TaskItem : DbItem
+    public class Activity : DbItem
     {
-        public String Category;
-        public String Description;
-        public String Name;
-        public String Priority;
-        public DateTime DueDate;
-        public DateTime StartDate;
+        public String Category { get; set; }
+        public String Description { get; set; }
+        public String Name { get; set; }
+        public String Priority { get; set; }
+        public DateTime DueDate { get; set; }
+        public DateTime StartDate { get; set; }
 
-        public TaskItem(String id, String name, String description, String category, String priority, DateTime startDate,
+        public Activity(String id, String name, String description, String category, String priority,
+            DateTime startDate,
             DateTime end)
         {
             Id = id;
