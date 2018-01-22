@@ -1,5 +1,12 @@
 
 # Ignore `bin` dir
+.vs/
+.idea/
 bin/
+packages/
+obj/
+
 # or
 */bin/*
+*/packages/*
+*/obj/*

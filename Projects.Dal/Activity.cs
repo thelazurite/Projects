@@ -47,7 +47,7 @@ namespace Projects.Dal
             DueDate = end;
         }
 
-        public override void AddToDb()
+        public override void Add()
         {
             SqlAdd = new SQLiteCommand(
                 $@"insert into tblTodoItems(todoId, todo, description, itemPriority,category, startDate, dueDate)
@@ -61,15 +61,15 @@ namespace Projects.Dal
             SqlAdd.Parameters.Add(new SQLiteParameter("@startDate", StartDate.ToString("yyyy-MM-ddTHH:mm:ss")));
             SqlAdd.Parameters.Add(new SQLiteParameter("@dueDate", DueDate.ToString("yyyy-MM-ddTHH:mm:ss")));
 
-            base.AddToDb();
+            base.Add();
         }
 
-        public override void DeleteFromDb()
+        public override void Delete()
         {
             SqlDelete = new SQLiteCommand("delete from tblTodoItems where todoId = @id");
             SqlDelete.Parameters.Add(new SQLiteParameter("@id", Id));
 
-            base.DeleteFromDb();
+            base.Delete();
         }
     }
 }
